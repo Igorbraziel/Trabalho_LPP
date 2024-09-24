@@ -1,4 +1,3 @@
-class Base
   vars id
   method showid()
   vars x

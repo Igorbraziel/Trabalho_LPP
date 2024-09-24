@@ -1,4 +1,4 @@
-package Executables;
+package Interpreter;
 
 public class BoolInterpreter {
 }
