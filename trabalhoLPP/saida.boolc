@@ -1,0 +1,7 @@
+FALHAFALHAFALHA
+const 10
+load self
+set id
+load self
+get id
+store xFALHAFALHAFALHA
