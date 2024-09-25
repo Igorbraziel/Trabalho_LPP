@@ -1,4 +1,4 @@
-package Utils;
+package src.Utils;
 
 public class io {
     public static int print(int value){
