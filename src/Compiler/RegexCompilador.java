@@ -1,4 +1,4 @@
-package compilador;
+package src.Compiler;
 
 //import static java.util.Objects.equals;
 import java.util.regex.Matcher;

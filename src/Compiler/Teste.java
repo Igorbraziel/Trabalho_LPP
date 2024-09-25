@@ -1,4 +1,4 @@
-package compilador;
+package src.Compiler;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
