@@ -1,0 +1,9 @@
+teste = new Pessoa
+    obj.met( a, b,c )
+b = p.age
+        numeros = 2344
+    variavel  =   variavelDois
+a.arauto = b.bola
+    a.oi = 0987
+a.tudo = ola
+Douglas
