@@ -17,9 +17,9 @@ public class CompilerRegex {
     public static Pattern ifPatt = Pattern.compile("^(\\s*if\\s+\\w+\\s+(eq|ne|gt|ge|lt|le)\\s+\\w+\\s+then\\s*)$");
     public static Pattern elsePatt = Pattern.compile("^\\s*else\\s*$");
     public static Pattern mainPatt = Pattern.compile("^\\s*main\\(\\)\\s*$");
-    public static Pattern obj_creationPatt = Pattern.compile("\\s*new\\s+\\w+");
     public static Pattern returnPatt = Pattern.compile("^\\s*return\\s+\\w+\\s*$");
     public static Pattern simpleAssignmentPatt = Pattern.compile("^\\s*\\w+\\s+=\\s+\\w+\\s*$");
     public static Pattern operatorAssignmentPatt = Pattern.compile("^(\\s*\\w+\\s+=\\s+\\w+\\s+([+\\-*/])\\s+\\w+\\s*)$");
+    public static Pattern obj_creationPatt = Pattern.compile("^\\s*\\w+\\s+=\\s+new\\s+\\w+$");
 
 }
