@@ -176,51 +176,6 @@ public class RegexCompilador {
     }
 
 
-    public String comparacoesInstrucoes(String linhaOriginal, String espacamento){
-        String linhaAux;
-        Pattern pattern = Pattern.compile("([a-zA-Z]+)\\s*>=\\s*([a-zA-Z]+)");
-        Matcher matcher = pattern.matcher(linhaOriginal);
-        if(matcher.find()){
-            linhaAux = "\n" + espacamento + matcher.group(1) + "\n" + espacamento + matcher.group(2) + "\n" + espacamento + "ge";
-            return linhaAux;
-        } else {
-            pattern = Pattern.compile("([a-zA-Z]+)\\s*>\\s*([a-zA-Z]+)");
-            matcher = pattern.matcher(linhaOriginal);
-            if(matcher.find()){
-                linhaAux = "\n" + espacamento + matcher.group(1) + "\n" + espacamento + matcher.group(2) + "\n" + espacamento + "gt";
-                return linhaAux;
-            } else {
-                pattern = Pattern.compile("([a-zA-Z]+)\\s*<=\\s*([a-zA-Z]+)");
-                matcher = pattern.matcher(linhaOriginal);
-                if(matcher.find()){
-                    linhaAux = "\n" + espacamento + matcher.group(1) + "\n" + espacamento + matcher.group(2) + "\n" + espacamento + "le";
-                    return linhaAux;
-                } else {
-                    pattern = Pattern.compile("([a-zA-Z]+)\\s*<\\s*([a-zA-Z]+)");
-                    matcher = pattern.matcher(linhaOriginal);
-                    if(matcher.find()){
-                        linhaAux = "\n" + espacamento + matcher.group(1) + "\n" + espacamento + matcher.group(2) + "\n" + espacamento + "lt";
-                        return linhaAux;
-                    } else {
-                        pattern = Pattern.compile("([a-zA-Z]+)\\s*==\\s*([a-zA-Z]+)");
-                        matcher = pattern.matcher(linhaOriginal);
-                        if(matcher.find()){
-                            linhaAux = "\n" + espacamento + matcher.group(1) + "\n" + espacamento + matcher.group(2) + "\n" + espacamento + "eq";
-                            return linhaAux;
-                        } else {
-                            pattern = Pattern.compile("([a-zA-Z]+)\\s*!=\\s*([a-zA-Z]+)");
-                            matcher = pattern.matcher(linhaOriginal);
-                            if(matcher.find()){
-                                linhaAux = "\n" + espacamento + matcher.group(1) + "\n" + espacamento + matcher.group(2) + "\n" + espacamento + "ne";
-                                return linhaAux;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        return falha;
-    }
 
     public String ifInstrucao(String linhaOriginal){
         int countLinhas;
@@ -228,7 +183,6 @@ public class RegexCompilador {
         Pattern pattern = Pattern.compile("(\\s*)if\\s*([a-zA-Z\\.]+\\s*[a-zA-Z\\.]+)\\s+then");
         Matcher matcher = pattern.matcher(linhaOriginal);
         if(matcher.find()){
-            linhaCompilada = comparacoesInstrucoes(matcher.group(2), matcher.group(1));
 
 
         }
