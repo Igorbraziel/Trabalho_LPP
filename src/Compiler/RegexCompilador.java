@@ -66,18 +66,18 @@ public class RegexCompilador {
     }
 
     public String atribuicaoInstrucao(String linhaOriginal){ //a = b.bola
-        Pattern pattern = Pattern.compile("^(\\s*)([a-zA-Z]+)\\s*=\\s*([a-z-A-Z]+)\\.([a-zA-Z]+)");
+        Pattern pattern = Pattern.compile("^(\\s*)([a-zA-Z]+)\\s*=\\s*([a-z-A-Z]+)\\.([a-zA-Z]+)\\s*$");
         Matcher matcher = pattern.matcher(linhaOriginal);
         if(matcher.find()){
             linhaCompilada = "\n" + matcher.group(1) + "load " + matcher.group(3) + "\n" + matcher.group(1) + "get " + matcher.group(4) + "\n" + matcher.group(1) + "store " + matcher.group(2);
 
         } else { //a = b
-            pattern = Pattern.compile("^(\\s*)([a-zA-Z]+)\\s*=\\s*([a-zA-Z]+)");
+            pattern = Pattern.compile("^(\\s*)([a-zA-Z]+)\\s*=\\s*([a-zA-Z]+)\\s*$");
             matcher = pattern.matcher(linhaOriginal);
             if(matcher.find()){
                 linhaCompilada = "\n" + matcher.group(1) + "load " + matcher.group(3) + "\n" + matcher.group(1) + "store " + matcher.group(2);
             } else { //a = 10
-                pattern = Pattern.compile("^(\\s*)([a-zA-Z]+)\\s*=\\s*([0-9]+)");
+                pattern = Pattern.compile("^(\\s*)([a-zA-Z]+)\\s*=\\s*([0-9]+)\\s*$");
                 matcher = pattern.matcher(linhaOriginal);
                 if(matcher.find()){
                     linhaCompilada = "\n" + matcher.group(1) + "const " + matcher.group(3) + "\n" + matcher.group(1) + "store " + matcher.group(2);
@@ -88,13 +88,13 @@ public class RegexCompilador {
                         linhaCompilada = "\n" + matcher.group(1) + "load " + matcher.group(4) + "\n" + matcher.group(1) + "load " + matcher.group(2);
                         linhaCompilada = linhaCompilada + "\n" + matcher.group(1) + "set " + matcher.group(3);
                     } else { // a.arauto = 10
-                        pattern = Pattern.compile("^(\\s*)([a-zA-Z]+)\\.([a-zA-Z]+)\\s*=\\s*([0-9]+)");
+                        pattern = Pattern.compile("^(\\s*)([a-zA-Z]+)\\.([a-zA-Z]+)\\s*=\\s*([0-9]+)\\s*$");
                         matcher = pattern.matcher(linhaOriginal);
                         if (matcher.find()) {
                             linhaCompilada = "\n" + matcher.group(1) + "const " + matcher.group(4) + "\n" + matcher.group(1) + "load " + matcher.group(2);
                             linhaCompilada = linhaCompilada + "\n" + matcher.group(1) + "set " + matcher.group(3);
                         } else { //a.arauto = b.bola
-                            pattern = Pattern.compile("^(\\s*)([a-zA-Z]+)\\.([a-zA-Z]+)\\s*=\\s*([a-zA-Z]+)\\.([a-zA-Z]+)");
+                            pattern = Pattern.compile("^(\\s*)([a-zA-Z]+)\\.([a-zA-Z]+)\\s*=\\s*([a-zA-Z]+)\\.([a-zA-Z]+)\\s*$");
                             matcher = pattern.matcher(linhaOriginal);
                             if (matcher.find()) {
                                 linhaCompilada = "\n" + matcher.group(1) + "load " + matcher.group(4) + "\n" + matcher.group(1) + "get " + matcher.group(5);
@@ -115,22 +115,36 @@ public class RegexCompilador {
 
 
     public String callInstrucao(String linhaOriginal){
-        String linhaAuxiliar, parametros, separatedParamether, espacamento;
+        String linhaAuxiliar = "", parametros = "", separatedParamether, espacamento = "";
         int i;
         ArrayList<String> allPar = new ArrayList<String>();
-        Boolean resultadoMatcher;
-        Pattern pattern = Pattern.compile("^(\\s*)([a-zA-Z]+)\\.([a-zA-Z]+)\\(([\\s,a-zA-Z]+)\\)\\s*");
+        Boolean resultadoPop = false;
+        Pattern pattern = Pattern.compile("^(\\s*)([a-zA-Z]+)\\.([a-zA-Z]+)\\(([\\s,a-zA-Z]*)\\)\\s*");
         Matcher matcher = pattern.matcher(linhaOriginal);
-        resultadoMatcher = matcher.find();
+        resultadoPop = matcher.find();
 
 
 
-        if(resultadoMatcher){
+        if(resultadoPop){
             espacamento = matcher.group(1);
-            linhaAuxiliar = "\n" + matcher.group(1) + "load " + matcher.group(2) + "\n" + matcher.group(1) + "call " + matcher.group(3);
+            linhaAuxiliar = "\n" + matcher.group(1) + "load " + matcher.group(2) + "\n" + matcher.group(1) + "call " + matcher.group(3) + "\n" + matcher.group(1) + "pop";
             parametros = matcher.group(4);
 
-            while(resultadoMatcher){
+
+        } else {
+            pattern = Pattern.compile("^(\\s*)([a-zA-Z]+)\\s*=\\s*([a-zA-Z]+)\\.([a-zA-Z]+)\\(([\\s,a-zA-Z]+)\\)\\s*$");
+            matcher = pattern.matcher(linhaOriginal);
+            resultadoPop = matcher.find();
+
+            if(resultadoPop){
+                espacamento = matcher.group(1);
+                linhaAuxiliar = "\n" + matcher.group(1) + "load " + matcher.group(3) + "\n" + matcher.group(1) + "call " + matcher.group(4) + "\n" + matcher.group(1) + "store " + matcher.group(2);
+                parametros = matcher.group(5);
+            }
+        }
+
+        if(resultadoPop){
+            while(resultadoPop){
 
                 pattern = Pattern.compile("([a-zA-Z]+)");
                 matcher = pattern.matcher(parametros);
@@ -142,8 +156,8 @@ public class RegexCompilador {
 
                 pattern = Pattern.compile("^[\\s]*[a-zA-Z]+[\\s,]+([a-zA-Z\\s,]+)$");
                 matcher = pattern.matcher(parametros);
-                resultadoMatcher = matcher.find();
-                if(resultadoMatcher){
+                resultadoPop = matcher.find();
+                if(resultadoPop){
                     parametros = matcher.group(1);
                 }
             }

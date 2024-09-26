@@ -1,6 +1,7 @@
 teste = new Pessoa
     obj.met( a, b,c )
-b = p.age
+s = sObj.sMet( x, y,z,  w )
+    b = p.age
         numeros = 2344
     variavel  =   variavelDois
 a.arauto = b.bola

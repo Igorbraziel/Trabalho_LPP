@@ -14,7 +14,7 @@ public class Teste {
 //
 //        arquivoEntrada = sc.next();
 //        arquivoSaida = sc.next();
-        arquivoEntrada = "codigo.txt";
+        arquivoEntrada = "arq.txt";
         arquivoSaida = "saida.boolc";
 
 

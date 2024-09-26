@@ -1,14 +1,33 @@
 
-method showid()
-vars x
-begin
-const 10
-load self
-set id
-load self
-get id
-store x
+new Pessoa
+store teste
+    load a
+    load b
+    load c
+    load obj
+    call met
+    pop
 load x
-ret
-end-method
-end-class
+load y
+load z
+load w
+load sObj
+call sMet
+store s
+    load p
+    get age
+    store b
+        const 2344
+        store numeros
+    load variavelDois
+    store variavel
+load b
+get bola
+load a
+set arauto
+    const 0987
+    load a
+    set oi
+load ola
+load a
+set tudoFALHA
