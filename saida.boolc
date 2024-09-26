@@ -1,7 +1,14 @@
-FALHAFALHAFALHA
+
+method showid()
+vars x
+begin
 const 10
 load self
 set id
 load self
 get id
-store xFALHAFALHAFALHA
+store x
+load x
+ret
+end-method
+end-class

@@ -26,6 +26,26 @@ public class RegexCompilador {
                 linhaCompilada = callInstrucao(linhaOriginal);
                 if(linhaCompilada.equals(falha)){
 
+                    linhaCompilada = beginEnd(linhaOriginal);
+                    if(linhaCompilada.equals(falha)){
+
+                        linhaCompilada = returnResposta(linhaOriginal);
+                        if(linhaCompilada.equals(falha)){
+
+                            linhaCompilada = declaracaoClasse(linhaOriginal);
+                            if(linhaCompilada.equals(falha)){
+
+                                linhaCompilada = declaracaoMetodo(linhaOriginal);
+                                if(linhaCompilada.equals(falha)){
+
+                                    linhaCompilada = declaracaoVariavel(linhaOriginal);
+                                    if(linhaCompilada.equals(falha)){
+
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
 
             }
@@ -209,6 +229,63 @@ public class RegexCompilador {
         if(matcher.find()){
             nomeCompilado = "\nload " + matcher.group(1) + "\nget " + matcher.group(2);
             return nomeCompilado;
+        }
+        return falha;
+    }
+
+    public String declaracaoMetodo(String linhaOriginal) {
+        Pattern pattern = Pattern.compile("^(\\s*)method\\s*([a-zA-Z]+)[(]\\s*[)]\\s*$");
+        Matcher matcher = pattern.matcher(linhaOriginal);
+        if (matcher.find()) {
+            linhaCompilada = "\n" + matcher.group(1) + "method " + matcher.group(2) + "()";
+            return linhaCompilada;
+        }
+        return falha;
+    }
+
+    public String declaracaoVariavel(String linhaOriginal) {
+        Pattern pattern = Pattern.compile("^(\\s*)vars\\s*([a-zA-Z]+)\\s*$");
+        Matcher matcher = pattern.matcher(linhaOriginal);
+        if (matcher.find()) {
+            linhaCompilada = "\n" + matcher.group(1) + "vars " + matcher.group(2) ;
+            return linhaCompilada;
+        }
+        return falha;
+    }
+
+    public String declaracaoClasse(String linhaOriginal) {
+        Pattern pattern = Pattern.compile("^(\\s*)class\\s*([a-zA-Z]+)\\s*$");
+        Matcher matcher = pattern.matcher(linhaOriginal);
+        if (matcher.find()) {
+            linhaCompilada = "\n" + matcher.group(1) + "class " + matcher.group(2);
+            return linhaCompilada;
+        }
+        return falha;
+    }
+
+    public String beginEnd(String linhaOriginal) {
+        Pattern pattern = Pattern.compile("^(\\s*)begin\\s*$");
+        Matcher matcher = pattern.matcher(linhaOriginal);
+        if (matcher.find()) {
+            linhaCompilada = "\n" + matcher.group(1) + "begin";
+            return linhaCompilada;
+        } else {
+            pattern = Pattern.compile("^(\\s*)end-([a-zA-Z]+)\\s*$");
+            matcher = pattern.matcher(linhaOriginal);
+            if (matcher.find()) {
+                linhaCompilada = "\n" + matcher.group(1) + "end-" + matcher.group(2);
+                return linhaCompilada;
+            }
+        }
+        return falha;
+    }
+
+    public String returnResposta(String linhaOriginal) {
+        Pattern pattern = Pattern.compile("^(\\s*)return\\s*([a-zA-Z]+)\\s*$");
+        Matcher matcher = pattern.matcher(linhaOriginal);
+        if (matcher.find()) {
+            linhaCompilada = "\n" + matcher.group(1) + "load " + matcher.group(2) + "\n" + matcher.group(1) + "ret";
+            return linhaCompilada;
         }
         return falha;
     }

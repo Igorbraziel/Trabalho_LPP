@@ -1,4 +1,4 @@
-method showid()
+method showid(    )
 vars x
 begin
 self.id = 10
