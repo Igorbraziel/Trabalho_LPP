@@ -30,4 +30,16 @@ set arauto
     set oi
 load ola
 load a
-set tudoFALHA
+set tudo
+    load g
+    load h
+    gt
+    if 5
+        load a
+        store c
+        load y
+        get yes
+        store d
+    end-if
+load valAtr
+store atrPosIfFALHA

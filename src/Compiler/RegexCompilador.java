@@ -1,5 +1,6 @@
 package src.Compiler;
 
+import java.io.BufferedReader;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.ArrayList;
@@ -26,7 +27,7 @@ public class RegexCompilador {
     }
 
 
-    public String mainRgex(String linhaOriginal){
+    public String mainRgex(String linhaOriginal, BufferedReader bufferedR){
 
         linhaCompilada = newArg(linhaOriginal);
         if(linhaCompilada.equals(falha)){
@@ -51,6 +52,13 @@ public class RegexCompilador {
 
                                     linhaCompilada = declaracaoVars(linhaOriginal);
                                     if(linhaCompilada.equals(falha)){
+
+                                        linhaCompilada = ifElse(linhaOriginal, bufferedR);
+                                        if(linhaCompilada.equals(falha)){
+
+
+
+                                        }
 
                                     }
                                 }

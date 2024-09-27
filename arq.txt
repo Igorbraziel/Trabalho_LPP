@@ -7,4 +7,9 @@ s = sObj.sMet( x, y,z,  w )
 a.arauto = b.bola
     a.oi = 0987
 a.tudo = ola
+    if g gt h then
+        c = a
+        d = y.yes
+    end-if
+atrPosIf = valAtr
 Douglas

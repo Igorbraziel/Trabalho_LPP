@@ -31,7 +31,7 @@ public class Teste {
             String linha = bf.readLine();
             while(linha != null){
 //                System.out.println(linha);
-                linhaCompilada = regex.mainRgex(linha);
+                linhaCompilada = regex.mainRgex(linha, bf);
 //                System.out.println(linhaCompilada + "  7");
                 fw.write(linhaCompilada);
                 linha = bf.readLine();
@@ -43,18 +43,7 @@ public class Teste {
         }catch (Exception e){
             System.out.println("Erro " + e);
         }
-
-//         try {
-//             FileWriter fw;
-//             fw = new FileWriter("arq.txt", true);
-//             fw.write("Douglas\nRodrigues\nBessa");
-//
-//
-//
-//             fw.close();
-//         } catch (Exception e){
-//             System.out.println("Erro " + e.getMessage());
-//         }
+        
 
     }
 }
