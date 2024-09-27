@@ -29,18 +29,33 @@ public class AtribuicaoComOperador {
             pattern = Pattern.compile("^(\\s*)(\\w+)\\.(\\w+)\\s+=\\s+(\\w+)\\s+([+\\-*/])\\s+(\\w+)\\s*$");
             matcher = pattern.matcher(linhaOriginal);
             if(matcher.find()){
-                if(matcher.group(5).equals("+")) {
-                    // falta desenvolver
-                } else if(matcher.group(5).equals("-")){
-                    // falta desenvolver
-                } else if(matcher.group(5).equals("*")){
-                    // falta desenvolver
-                } else if(matcher.group(5).equals("/")){
-                    // falta desenvolver
+                if(matcher.group(5).equals("+")) { //NÃO SEI SE ESTÁ CERTO
+                    linhaCompilada = "\n" + matcher.group(1) + "load " + matcher.group(4) + "\n"
+                            + matcher.group(1) + "load " + matcher.group(6) + "\n"
+                            + matcher.group(1) + "add" + "\n"
+                            + matcher.group(1) + "load " + matcher.group(2) + "\n"
+                            + matcher.group(1) + "set " + matcher.group(3);
+                } else if(matcher.group(5).equals("-")){ //NÃO SEI SE ESTÁ CERTO
+                    linhaCompilada = "\n" + matcher.group(1) + "load " + matcher.group(4) + "\n"
+                            + matcher.group(1) + "load " + matcher.group(6) + "\n"
+                            + matcher.group(1) + "sub" + "\n"
+                            + matcher.group(1) + "load " + matcher.group(2) + "\n"
+                            + matcher.group(1) + "set " + matcher.group(3);
+                } else if(matcher.group(5).equals("*")){ //NÃO SEI SE ESTÁ CERTO
+                    linhaCompilada = "\n" + matcher.group(1) + "load " + matcher.group(4) + "\n"
+                            + matcher.group(1) + "load " + matcher.group(6) + "\n"
+                            + matcher.group(1) + "mul" + "\n"
+                            + matcher.group(1) + "load " + matcher.group(2) + "\n"
+                            + matcher.group(1) + "set " + matcher.group(3);
+                } else if(matcher.group(5).equals("/")){ //NÃO SEI SE ESTÁ CERTO
+                    linhaCompilada = "\n" + matcher.group(1) + "load " + matcher.group(4) + "\n"
+                            + matcher.group(1) + "load " + matcher.group(6) + "\n"
+                            + matcher.group(1) + "div" + "\n"
+                            + matcher.group(1) + "load " + matcher.group(2) + "\n"
+                            + matcher.group(1) + "set " + matcher.group(3);
                 }
             }
         }
-
 
         return linhaCompilada;
     }
