@@ -1,4 +1,6 @@
+          main()
 teste = new Pessoa
+
     obj.met( a, b,c )
 s = sObj.sMet( x, y,z,  w )
     b = p.age
@@ -7,14 +9,18 @@ s = sObj.sMet( x, y,z,  w )
 a.arauto = b.bola
     a.oi = 0987
 a.tudo = ola
+
     if g gt h then
         c = a
         d = y.yes
     end-if
+
 if valUm eq valDois then
     a = b
     teste = new Pessoa
 else
     objV.v = w * r
 end-if
-Douglas
+
+end
+FRASEaleatoriaPARAteste

@@ -16,6 +16,7 @@ import static src.Compiler.DeclaracaoMetodo.declaracaoMetodo;
 import static src.Compiler.DeclaracaoVars.declaracaoVars;
 import static src.Compiler.DeclaracaoClasse.declaracaoClasse;
 import static src.Compiler.AtribuicaoComOperador.atribuicaoComOperador;
+import static src.Compiler.EndMainBlank.endMainBlank;
 
 
 public class RegexCompilador {
@@ -60,6 +61,10 @@ public class RegexCompilador {
                                             linhaCompilada = ifElse(linhaOriginal, bufferedR);
                                             if(linhaCompilada.equals(falha)){
 
+                                                linhaCompilada = endMainBlank(linhaOriginal);
+                                                if(linhaCompilada.equals(falha)){
+
+                                                }
                                             }
                                         }
                                     }
