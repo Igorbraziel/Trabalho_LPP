@@ -11,5 +11,10 @@ a.tudo = ola
         c = a
         d = y.yes
     end-if
-atrPosIf = valAtr
+if valUm eq valDois then
+    a = b
+    teste = new Pessoa
+else
+    v = w
+end-if
 Douglas

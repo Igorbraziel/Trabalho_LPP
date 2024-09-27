@@ -41,5 +41,15 @@ set tudo
         get yes
         store d
     end-if
-load valAtr
-store atrPosIfFALHA
+load valUm
+load valDois
+eq
+if 4
+    load b
+    store a
+    new Pessoa
+    store teste
+else 2
+    load w
+    store v
+end-ifFALHA

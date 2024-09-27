@@ -11,14 +11,17 @@ public class IfElse {
         String linhaCompilada = falha;
         String linhaAux = "";
         String linhaLeitura = "";
+        String linhaElse = "";
+        String espacamentoIfElse = "";
         int countLinhas = 0;
-        Boolean fimDoIf = false;
+        Boolean fimDoIf = false, entrouNoElse = false;
 
-        Pattern pattern = Pattern.compile("(\\s*)if\\s*([a-zA-Z])+\\s*([a-zA-Z]+)\\s+([a-zA-Z]+)\\s+then\\s*$");
+        Pattern pattern = Pattern.compile("(\\s*)if\\s*([a-zA-Z]+)\\s*([a-zA-Z]+)\\s+([a-zA-Z]+)\\s+then\\s*$");
         Matcher matcher = pattern.matcher(linhaOriginal);
         if(matcher.find()){
             linhaCompilada = "\n" + matcher.group(1) + "load " + matcher.group(2) + "\n" + matcher.group(1) + "load " + matcher.group(4);
             linhaCompilada = linhaCompilada + "\n" + matcher.group(1) + matcher.group(3) + "\n" + matcher.group(1);
+            espacamentoIfElse = matcher.group(1);
 
             RegexCompilador regex = new RegexCompilador();
 
@@ -32,15 +35,33 @@ public class IfElse {
                 matcher = pattern.matcher(linhaLeitura);
                 if(matcher.find()){
                     fimDoIf = true;
-                    linhaAux = linhaAux + "\n" + matcher.group(1) + "end-if";
+                    linhaElse = linhaElse + "\n" + matcher.group(1) + "end-if";
                 } else {
-                    linhaAux = linhaAux + regex.mainRgex(linhaLeitura, bf);
+                    if(!entrouNoElse) {
+                        pattern = Pattern.compile("^(\\s*)else\\s*$");
+                        matcher = pattern.matcher(linhaLeitura);
+                        if (matcher.find()) {
+                            entrouNoElse = true;
+
+                        } else {
+                            linhaAux = linhaAux + regex.mainRgex(linhaLeitura, bf);
+                        }
+                    } else {
+                        linhaElse = linhaElse + regex.mainRgex(linhaLeitura, bf);
+                    }
+
                 }
 
             }
-            countLinhas = linhaAux.length() - linhaAux.replace("\n", "").length() - 1;
+
+            countLinhas = linhaElse.length() - linhaElse.replace("\n", "").length() - 1;
+            if(countLinhas > 0){
+                linhaElse = "\n" + espacamentoIfElse + "else " + countLinhas + linhaElse;
+            }
+
+            countLinhas = linhaAux.length() - linhaAux.replace("\n", "").length();
             linhaCompilada = linhaCompilada + "if " + countLinhas;
-            linhaCompilada = linhaCompilada + linhaAux;
+            linhaCompilada = linhaCompilada + linhaAux + linhaElse;
 
             return linhaCompilada;
         }
