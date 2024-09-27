@@ -15,6 +15,6 @@ if valUm eq valDois then
     a = b
     teste = new Pessoa
 else
-    v = w
+    objV.v = w * r
 end-if
 Douglas

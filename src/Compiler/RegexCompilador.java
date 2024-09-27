@@ -15,6 +15,7 @@ import static src.Compiler.NomeVar.variavelOuAtributo;
 import static src.Compiler.DeclaracaoMetodo.declaracaoMetodo;
 import static src.Compiler.DeclaracaoVars.declaracaoVars;
 import static src.Compiler.DeclaracaoClasse.declaracaoClasse;
+import static src.Compiler.AtribuicaoComOperador.atribuicaoComOperador;
 
 
 public class RegexCompilador {
@@ -53,20 +54,20 @@ public class RegexCompilador {
                                     linhaCompilada = declaracaoVars(linhaOriginal);
                                     if(linhaCompilada.equals(falha)){
 
-                                        linhaCompilada = ifElse(linhaOriginal, bufferedR);
+                                        linhaCompilada = atribuicaoComOperador(linhaOriginal);
                                         if(linhaCompilada.equals(falha)){
 
+                                            linhaCompilada = ifElse(linhaOriginal, bufferedR);
+                                            if(linhaCompilada.equals(falha)){
 
-
+                                            }
                                         }
-
                                     }
                                 }
                             }
                         }
                     }
                 }
-
             }
         }
 

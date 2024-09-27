@@ -49,7 +49,10 @@ if 4
     store a
     new Pessoa
     store teste
-else 2
+else 5
     load w
-    store v
+    load r
+    mul
+    load objV
+    set v
 end-ifFALHA
