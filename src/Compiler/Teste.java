@@ -20,11 +20,7 @@ public class Teste {
 
 
 
-        try {
-            FileReader fr;
-            fr = new FileReader(arquivoEntrada);
-            BufferedReader bf = new BufferedReader(fr);
-
+        try(BufferedReader bf = new BufferedReader( new FileReader(arquivoEntrada) )) {
             FileWriter fw;
             fw = new FileWriter(arquivoSaida);
 
@@ -40,7 +36,7 @@ public class Teste {
             }
             fw.close();
 
-        }catch (Exception e){
+        } catch (Exception e){
             System.out.println("Erro " + e);
         }
         
