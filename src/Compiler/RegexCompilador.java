@@ -75,8 +75,6 @@ public class RegexCompilador {
                 }
             }
         }
-
-
         return linhaCompilada;
     }
 
