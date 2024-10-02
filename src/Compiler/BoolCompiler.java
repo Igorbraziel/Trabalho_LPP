@@ -4,9 +4,8 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
-import java.lang.ArrayIndexOutOfBoundsException;
 import java.io.IOException;
-
+import java.lang.Exception;
 
 
 public class BoolCompiler {
@@ -23,9 +22,9 @@ public class BoolCompiler {
                     String linha = br.readLine();
 
                     while(linha != null){
-                        System.out.println(linha);
+                        //System.out.println(linha);
                         linhaCompilada = regex.mainRgex(linha, br);
-                        System.out.println(linhaCompilada + "  7");
+                        //System.out.println(linhaCompilada + "  7");
                         bw.write(linhaCompilada);
                         linha = br.readLine();
                     }
@@ -36,7 +35,7 @@ public class BoolCompiler {
             } catch (IOException error){
                 System.out.println("Erro no arquivo de entrada: " + error.getMessage());
             }
-        } catch(ArrayIndexOutOfBoundsException error){
+        } catch(Exception error){
             System.out.println("Os Arquivos de entrada e saída devem ser informados na execução do programa");
             System.out.println("Error: " + error.getMessage());
         }
