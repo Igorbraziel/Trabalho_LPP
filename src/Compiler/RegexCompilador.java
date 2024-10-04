@@ -1,22 +1,22 @@
-package src.Compiler;
+package Compiler;
 
 import java.io.BufferedReader;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.ArrayList;
 
-import static src.Compiler.NewArgumento.newArg;
-import static src.Compiler.Atribuicao.atribuicao;
-import static src.Compiler.CallMethod.callMethod;
-import static src.Compiler.ReturnResposta.returnResposta;
-import static src.Compiler.BeginEnd.beginEnd;
-import static src.Compiler.IfElse.ifElse;
-import static src.Compiler.NomeVar.variavelOuAtributo;
-import static src.Compiler.DeclaracaoMetodo.declaracaoMetodo;
-import static src.Compiler.DeclaracaoVars.declaracaoVars;
-import static src.Compiler.DeclaracaoClasse.declaracaoClasse;
-import static src.Compiler.AtribuicaoComOperador.atribuicaoComOperador;
-import static src.Compiler.EndMainBlank.endMainBlank;
+import static Compiler.NewArgumento.newArg;
+import static Compiler.Atribuicao.atribuicao;
+import static Compiler.CallMethod.callMethod;
+import static Compiler.ReturnResposta.returnResposta;
+import static Compiler.BeginEnd.beginEnd;
+import static Compiler.IfElse.ifElse;
+import static Compiler.NomeVar.variavelOuAtributo;
+import static Compiler.DeclaracaoMetodo.declaracaoMetodo;
+import static Compiler.DeclaracaoVars.declaracaoVars;
+import static Compiler.DeclaracaoClasse.declaracaoClasse;
+import static Compiler.AtribuicaoComOperador.atribuicaoComOperador;
+import static Compiler.EndMainBlank.endMainBlank;
 
 
 public class RegexCompilador {
