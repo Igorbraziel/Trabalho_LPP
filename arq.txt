@@ -21,6 +21,6 @@ if valUm eq valDois then
 else
     objV.v = w * r
 end-if
-
+begin
 end
 FRASEaleatoriaPARAteste
