@@ -3,13 +3,19 @@ package Interpreter;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import static Interpreter.Intermediadora.Intermediadora;
+
+
 
 import java.util.Stack;
 
 public class BoolInterpreter {
     public static void main(String[] args) {
         String arquivoEntrada;
-        Stack<Object> pilha = new Stack<>();
+        /*Stack<Object> pilha = new Stack<>();*/
+        List<Var> pilhaList = new ArrayList<Var>();
 
         try{
             arquivoEntrada = args[0];
@@ -19,6 +25,7 @@ public class BoolInterpreter {
 
                 while(linhaCompilada != null){
                     System.out.println(linhaCompilada);
+                    Intermediadora(linhaCompilada, pilhaList );
                     linhaCompilada = br.readLine();
                 }
             } catch (IOException error){
