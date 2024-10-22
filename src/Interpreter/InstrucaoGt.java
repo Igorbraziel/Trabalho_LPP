@@ -20,6 +20,8 @@ public class InstrucaoGt {
             }else{
                 Var<Boolean> resultado = new Var<>("-", false);
             }
+            System.out.println(pilha);
+            return true;
         }
         return false;
     }

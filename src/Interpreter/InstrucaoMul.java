@@ -19,6 +19,7 @@ public class InstrucaoMul {
 
             Var<Integer> resultado = new Var<>("-", mul);
             pilha.add(resultado);
+            System.out.println(pilha);
             return true;
         }
         return false;

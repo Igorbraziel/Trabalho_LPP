@@ -12,6 +12,7 @@ public class InstrucaoConst {
         if (matcher.find()) {
             Var<Integer> inteiro = new Var<>("-", Integer.parseInt(matcher.group(1)));
             pilha.addFirst(inteiro);
+            System.out.println(pilha);
             return true;
         }
         return false;

@@ -17,6 +17,7 @@ public class InstrucaoSub {
 
             Var<Integer> resultado = new Var<>("-", sub);
             pilha.add(resultado);
+            System.out.println(pilha);
             return true;
         }
         return false;

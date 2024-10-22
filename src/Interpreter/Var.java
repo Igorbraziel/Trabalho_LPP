@@ -24,4 +24,9 @@ public class Var<T> {
     public void setValor(T valor) {
         this.valor = valor;
     }
+
+    @Override
+    public String toString() {
+        return "Var [nome=" + nome + ", valor=" + valor + "]";
+    }
 }

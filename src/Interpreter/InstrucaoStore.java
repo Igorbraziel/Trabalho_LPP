@@ -14,6 +14,8 @@ public class InstrucaoStore {
             Var valor = pilha.getFirst();
             pilha.removeFirst();
             pilha.addFirst(new Var(matcher.group(1), valor.getValor()));
+            System.out.println(pilha);
+            return true;
         }
         return false;
     }
