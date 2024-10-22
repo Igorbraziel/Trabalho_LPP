@@ -11,6 +11,9 @@ public class InstrucaoStore {
         Matcher matcher = pattern.matcher(linhaCompilada);
 
         if(matcher.find()){
+            Var valor = pilha.getFirst();
+            pilha.removeFirst();
+            pilha.addFirst(new Var(matcher.group(1), valor.getValor()));
         }
         return false;
     }

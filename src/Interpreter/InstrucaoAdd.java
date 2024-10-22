@@ -10,10 +10,14 @@ public class InstrucaoAdd {
         Matcher matcher = pattern.matcher(linhaCompilada);
 
         if(matcher.find()){
-            Var var1 = pilha.removeLast();
-            Var var2 = pilha.removeLast();
+            Var<Integer> var1 = pilha.getFirst();
+            pilha.removeFirst();
+            Var<Integer> var2 = pilha.getFirst();
+            pilha.removeFirst();
 
-            Var resultado = new Var("-", var1.getValor() + var2.getValor());
+            int soma = var1.getValor() + var2.getValor();
+
+            Var<Integer> resultado = new Var<>("-", soma);
             pilha.add(resultado);
             return true;
         }

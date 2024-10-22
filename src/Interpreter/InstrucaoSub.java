@@ -10,10 +10,12 @@ public class InstrucaoSub {
         Matcher matcher = pattern.matcher(linhaCompilada);
 
         if(matcher.find()){
-            Var var1 = pilha.removeLast();
-            Var var2 = pilha.removeLast();
+            Var<Integer> var1 = pilha.getFirst();
+            Var<Integer> var2 = pilha.get(1);
 
-            Var resultado = new Var("-", var1.getValor() - var2.getValor());
+            int sub = var1.getValor() - var2.getValor();
+
+            Var<Integer> resultado = new Var<>("-", sub);
             pilha.add(resultado);
             return true;
         }

@@ -1,10 +1,10 @@
 package Interpreter;
 
-public class Var {
+public class Var<T> {
     private String nome;
-    private int valor;
+    private T valor;
 
-    public Var(String nome, int valor) {
+    public Var(String nome, T valor) {
         this.nome = nome;
         this.valor = valor;
     }
@@ -17,11 +17,11 @@ public class Var {
         this.nome = nome;
     }
 
-    public int getValor() {
+    public T getValor() {
         return valor;
     }
 
-    public void setValor(int valor) {
+    public void setValor(T valor) {
         this.valor = valor;
     }
 }

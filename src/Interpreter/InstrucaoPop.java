@@ -10,6 +10,7 @@ public class InstrucaoPop {
         Matcher matcher = pattern.matcher(linhaCompilada);
 
         if(matcher.find()){
+            pilha.removeFirst();
         }
         return false;
     }

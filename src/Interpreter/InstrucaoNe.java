@@ -10,6 +10,16 @@ public class InstrucaoNe {
         Matcher matcher = pattern.matcher(linhaCompilada);
 
         if(matcher.find()){
+            Var<Integer> var1 = pilha.getFirst();
+            pilha.removeFirst();
+            Var<Integer> var2 = pilha.getFirst();
+            pilha.removeFirst();
+
+            if (!var1.getValor().equals(var2.getValor())){
+                Var<Boolean> resultado = new Var<>("-", true);
+            }else{
+                Var<Boolean> resultado = new Var<>("-", false);
+            }
         }
         return false;
     }

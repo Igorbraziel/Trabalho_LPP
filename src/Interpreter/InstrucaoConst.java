@@ -10,8 +10,8 @@ public class InstrucaoConst {
         Matcher matcher = pattern.matcher(linhaCompilada);
 
         if (matcher.find()) {
-            int number = Integer.parseInt(matcher.group(1));
-            pilha.push(new Pilha("-", number));
+            Var<Integer> inteiro = new Var<>("-", Integer.parseInt(matcher.group(1)));
+            pilha.addFirst(inteiro);
             return true;
         }
         return false;

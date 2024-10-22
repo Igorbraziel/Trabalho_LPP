@@ -10,10 +10,15 @@ public class InstrucaoLoad {
         Matcher matcher = pattern.matcher(linhaCompilada);
 
         if(matcher.find()){
-            //Encontra
-            //removeElement
-            //push
-            return true;
+            String nomeVariavel = matcher.group(1);
+
+            for (Var var : pilha) {
+                if (var.getNome().equals(nomeVariavel)) {
+                    pilha.remove(var);
+                    pilha.addFirst(var);
+                    return true;
+                }
+            }
         }
         return false;
     }
