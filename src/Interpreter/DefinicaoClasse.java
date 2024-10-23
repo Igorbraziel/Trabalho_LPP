@@ -1,26 +1,32 @@
 package Interpreter;
 
 import java.io.BufferedReader;
-import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import static Interpreter.ListasObjetos.*;
 
 import static Interpreter.Intermediadora.Intermediadora;
 
 public class DefinicaoClasse {
     public static Boolean DefinicaoClasse(String linhaCompilada, List<Var> pilha, BufferedReader br){
+        //IDENTIFICA SE É A DECLARAÇÃO DA ESTRUTURA DE UMA CLASSE
+        //QUE PODERÁ SER INSTANCIADA FUTURAMENTE
         Pattern pattern = Pattern.compile("^\\s*class\\s+(\\w+)\\s*$");
         Matcher matcher = pattern.matcher(linhaCompilada);
         Boolean achouMatch;
-        List<Var> listaVars = new ArrayList<Var>();
-        List<DefinicaoMetodo> metodos = new ArrayList<DefinicaoMetodo>();
+        String className;
+        List<Var> listaVars = new LinkedList<Var>();
+        List<DefinicaoMetodo> metodos = new LinkedList<DefinicaoMetodo>();
 
         if(matcher.find()){
-            String className = matcher.group(1);
+            className = matcher.group(1); //GUARDA O NOME DA CLASSE
 
             try {
                 linhaCompilada = br.readLine();
+                //VERIFICA SE HÁ VARIÁVEIS NA CLASSE E PASSA O NOME DE TODAS PARA parametros
                 pattern = Pattern.compile("^\\s*vars\\s+([a-zA-Z,\\s]+)\\s*$");
                 matcher = pattern.matcher(linhaCompilada);
                 achouMatch = matcher.find();
@@ -29,7 +35,8 @@ public class DefinicaoClasse {
                     String separatedParamether;
 
                     while(achouMatch){
-
+                        /*SEPARA O NOME DE TODAS AS VARIAVEIS E A ADICIONA
+                        * À ESTRUTURA DA CLASSE EM listaVars*/
                         pattern = Pattern.compile("([a-zA-Z]+)");
                         matcher = pattern.matcher(parametros);
                         matcher.find();
@@ -48,6 +55,7 @@ public class DefinicaoClasse {
 
 
                 }
+                /* IDENTIFICA A EXISTÊNCIA DE MÉTODOS ATÉ O FIM DA CLASSE.*/
                 while (!achouMatch) {
                     pattern = Pattern.compile("end-class");
                     matcher = pattern.matcher(linhaCompilada);
@@ -57,8 +65,10 @@ public class DefinicaoClasse {
                         matcher = pattern.matcher(linhaCompilada);
                         achouMatch = matcher.find();
                         if(achouMatch) {
-
-                            ArrayList<String> instrucoes = new ArrayList<String>();
+                            /*PARA CADA MÉTODO GUARDA O NOME E AS INSTRUÇÕES
+                            *  PARA QUANDO O MÉTODO FOR CHAMADO*/
+                            LinkedList<String> instrucoes = new LinkedList<String>();
+                            //CRIA O METODO PASSANDO O NOME DELE COMO PARÂMETRO
                             DefinicaoMetodo metodo = new DefinicaoMetodo(matcher.group(1));
                             achouMatch = !achouMatch;
                             while (!achouMatch) {
@@ -82,16 +92,19 @@ public class DefinicaoClasse {
                     System.out.println("Error: " + error.getMessage());
             }
 
-            for(int k = 0; k<listaVars.size(); k++){
-                System.out.println(listaVars.get(k).getNome() + " - " + listaVars.get(k).getValor());
-            }
-            for(int i = 0; i<metodos.size(); i++) {
-                System.out.println("Nome do metodo: " + metodos.get(i).getNome());
-                for (int j = 0; j < metodos.get(i).getInstrucoes().size(); j++) {
-                    System.out.println(metodos.get(i).getInstrucoes().get(j));
-                }
-            }
-            System.out.println("Acabou a classe");
+
+//            for(int k = 0; k<listaVars.size(); k++){
+//                System.out.println(listaVars.get(k).getNome() + " - " + listaVars.get(k).getValor());
+//            }
+//            for(int i = 0; i<metodos.size(); i++) {
+//                System.out.println("Nome do metodo: " + metodos.get(i).getNome());
+//                for (int j = 0; j < metodos.get(i).getInstrucoes().size(); j++) {
+//                    System.out.println(metodos.get(i).getInstrucoes().get(j));
+//                }
+//            }
+            addEstrutura(new EstruturaObjeto(className, metodos, listaVars));
+
+//            System.out.println("Acabou a classe");
             return true;
         }
         return false;
