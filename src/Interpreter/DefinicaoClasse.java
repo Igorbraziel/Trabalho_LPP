@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import static Interpreter.ListasObjetos.*;
+import static Interpreter.InstrucaoVars.InstrucaoVars;
 
 import static Interpreter.Intermediadora.Intermediadora;
 
@@ -26,35 +27,15 @@ public class DefinicaoClasse {
 
             try {
                 linhaCompilada = br.readLine();
-                //VERIFICA SE HÁ VARIÁVEIS NA CLASSE E PASSA O NOME DE TODAS PARA parametros
+                /*VERIFICA SE HÁ VARIÁVEIS NA CLASSE E PASSA O NOME DE TODAS PARA O MÉTODO IinstrucaoVars*/
                 pattern = Pattern.compile("^\\s*vars\\s+([a-zA-Z,\\s]+)\\s*$");
                 matcher = pattern.matcher(linhaCompilada);
                 achouMatch = matcher.find();
                 if (achouMatch) {
-                    String parametros = matcher.group(1);
-                    String separatedParamether;
-
-                    while(achouMatch){
-                        /*SEPARA O NOME DE TODAS AS VARIAVEIS E A ADICIONA
-                        * À ESTRUTURA DA CLASSE EM listaVars*/
-                        pattern = Pattern.compile("([a-zA-Z]+)");
-                        matcher = pattern.matcher(parametros);
-                        matcher.find();
-                        separatedParamether = matcher.group(1);
-                        Var variavel = new Var("", 0);
-                        variavel.setNome(separatedParamether);
-                        listaVars.addFirst(variavel);
-
-                        pattern = Pattern.compile("^[\\s]*[a-zA-Z]+[\\s,]+([a-zA-Z\\s,]+)$");
-                        matcher = pattern.matcher(parametros);
-                        achouMatch = matcher.find();
-                        if(achouMatch){
-                            parametros = matcher.group(1);
-                        }
-                    }
-
-
+                    listaVars = InstrucaoVars(matcher.group(1));
                 }
+                achouMatch = !achouMatch;
+
                 /* IDENTIFICA A EXISTÊNCIA DE MÉTODOS ATÉ O FIM DA CLASSE.*/
                 while (!achouMatch) {
                     pattern = Pattern.compile("end-class");
@@ -66,7 +47,7 @@ public class DefinicaoClasse {
                         achouMatch = matcher.find();
                         if(achouMatch) {
                             /*PARA CADA MÉTODO GUARDA O NOME E AS INSTRUÇÕES
-                            *  PARA QUANDO O MÉTODO FOR CHAMADO*/
+                             *  PARA QUANDO O MÉTODO FOR CHAMADO*/
                             LinkedList<String> instrucoes = new LinkedList<String>();
                             //CRIA O METODO PASSANDO O NOME DELE COMO PARÂMETRO
                             DefinicaoMetodo metodo = new DefinicaoMetodo(matcher.group(1));
@@ -88,8 +69,8 @@ public class DefinicaoClasse {
 
 
             }catch(Exception error){
-                    System.out.println("O arquivo de entrada compilado deve ser informado na execução do programa");
-                    System.out.println("Error: " + error.getMessage());
+                System.out.println("O arquivo de entrada compilado deve ser informado na execução do programa");
+                System.out.println("Error: " + error.getMessage());
             }
 
 

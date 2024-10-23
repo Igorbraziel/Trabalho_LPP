@@ -13,12 +13,11 @@ import static Interpreter.ListasObjetos.*;
 
 import java.util.Stack;
 
-public class    BoolInterpreter {
+public class BoolInterpreter {
     public static void main(String[] args) {
         String arquivoEntrada;
         /*Stack<Object> pilha = new Stack<>();*/
         List<Var> pilhaList = new LinkedList<Var>();
-        List<Var> listaDaMemoria = new LinkedList<Var>();
 
 
         try{
@@ -35,15 +34,23 @@ public class    BoolInterpreter {
             } catch (IOException error){
                 System.out.println("Error: " + error.getMessage());
             }
-        } catch(ArrayIndexOutOfBoundsException error){
+        } catch(Exception error){
             System.out.println("O arquivo de entrada compilado deve ser informado na execução do programa");
             System.out.println("Error: " + error.getMessage());
         }
 
         List<EstruturaObjeto> listaEst = getListaEstruturaClasses();
 
+
+
+        System.out.println("\n\nListagem das classes\n");
         for(int i = 0; i<listaEst.size(); i++) {
             System.out.println("Nome da classe: " + listaEst.get(i).getClassName());
+            System.out.print("Nome das Variáveis: ");
+            for(int j = 0; j<listaEst.get(i).getListaVars().size(); j++){
+                System.out.print(listaEst.get(i).getListaVars().get(j).getNome() + ", ");
+            }
+            System.out.println("");
             for (int j = 0; j < listaEst.get(i).getMetodos().size(); j++) {
                 System.out.println("Nome do metodo: " + listaEst.get(i).getMetodos().get(j).getNome());
                 for(int k = 0; k<listaEst.get(i).getMetodos().get(j).getInstrucoes().size(); k++) {

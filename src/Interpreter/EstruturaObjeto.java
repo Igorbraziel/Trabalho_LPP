@@ -16,6 +16,9 @@ public class EstruturaObjeto {
         this.className = className;
         this.listaVars = listaVars;
     }
+    EstruturaObjeto(){
+        //
+    }
 
     public String getClassName() {
         return className;

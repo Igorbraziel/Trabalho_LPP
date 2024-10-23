@@ -1,0 +1,31 @@
+class classeTeste
+    vars y, x, w
+
+    method subtracao()
+    vars x
+    begin
+        y = 10
+        x = 5
+        w = x - y
+        return w
+    end-method
+
+    method multiplicacao()
+    vars x
+    begin
+        y = 10
+        x = 5
+        w = x * y
+        return w
+    end-method
+end-class
+
+main()
+vars a, b, c
+begin
+    a = 40
+    b = 50
+    c = b - a
+    io.print(c)
+    d = new classeTeste
+end
