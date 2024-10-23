@@ -16,10 +16,11 @@ public class InstrucaoLoad {
                 if (var.getNome().equals(nomeVariavel)) {
                     pilha.remove(var);
                     pilha.addFirst(var);
+                    return true;
                 }
             }
-            System.out.println(pilha);
-            return true;
+//            System.out.println(pilha);
+//            return true;
         }
         return false;
     }
