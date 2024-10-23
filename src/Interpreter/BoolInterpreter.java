@@ -34,9 +34,9 @@ public class BoolInterpreter {
             } catch (IOException error){
                 System.out.println("Error: " + error.getMessage());
             }
-        } catch(Exception error){
+        } catch(ArrayIndexOutOfBoundsException error){
             System.out.println("O arquivo de entrada compilado deve ser informado na execução do programa");
-            System.out.println("Error: " + error.getMessage());
+            error.printStackTrace();
         }
 
         List<EstruturaObjeto> listaEst = getListaEstruturaClasses();
