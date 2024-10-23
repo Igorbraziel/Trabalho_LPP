@@ -13,7 +13,7 @@ import static Interpreter.ListasObjetos.*;
 
 import java.util.Stack;
 
-public class BoolInterpreter {
+public class    BoolInterpreter {
     public static void main(String[] args) {
         String arquivoEntrada;
         /*Stack<Object> pilha = new Stack<>();*/

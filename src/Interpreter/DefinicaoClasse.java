@@ -11,7 +11,7 @@ import static Interpreter.ListasObjetos.*;
 import static Interpreter.Intermediadora.Intermediadora;
 
 public class DefinicaoClasse {
-    public static Boolean DefinicaoClasse(String linhaCompilada, List<Var> pilha, BufferedReader br){
+    public static Boolean definicaoClasse(String linhaCompilada, List<Var> pilha, BufferedReader br){
         //IDENTIFICA SE É A DECLARAÇÃO DA ESTRUTURA DE UMA CLASSE
         //QUE PODERÁ SER INSTANCIADA FUTURAMENTE
         Pattern pattern = Pattern.compile("^\\s*class\\s+(\\w+)\\s*$");

@@ -5,7 +5,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class InstrucaoSub {
-    public static Boolean InstrucaoSub(String linhaCompilada, List<Var> pilha){
+    public static Boolean instrucaoSub(String linhaCompilada, List<Var> pilha){
         Pattern pattern = Pattern.compile("^\\s*sub\\s*$");
         Matcher matcher = pattern.matcher(linhaCompilada);
 

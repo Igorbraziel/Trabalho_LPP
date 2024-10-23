@@ -5,7 +5,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class InstrucaoNew {
-    public static Boolean InstrucaoNew(String linhaCompilada, List<Var> pilha){
+    public static Boolean instrucaoNew(String linhaCompilada, List<Var> pilha){
         Pattern pattern = Pattern.compile("^\\s*new\\s+([A-Z][a-zA-Z]*)\\s*$\n");
         Matcher matcher = pattern.matcher(linhaCompilada);
 

@@ -22,9 +22,7 @@ public class BoolCompiler {
                     String linha = br.readLine();
 
                     while(linha != null){
-                        //System.out.println(linha);
                         linhaCompilada = regex.mainRgex(linha, br);
-                        //System.out.println(linhaCompilada + "  7");
                         bw.write(linhaCompilada);
                         linha = br.readLine();
                     }

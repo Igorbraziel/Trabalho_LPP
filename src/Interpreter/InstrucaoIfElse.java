@@ -12,7 +12,7 @@ import static Interpreter.Intermediadora.Intermediadora;
 
 
 public class InstrucaoIfElse {
-    public static Boolean InstrucaoIfElse(String linhaCompilada, List<Var> pilha, BufferedReader br) throws IOException {
+    public static Boolean instrucaoIfElse(String linhaCompilada, List<Var> pilha, BufferedReader br) throws IOException {
         Pattern pattern = Pattern.compile("^(\\s*)if\\s*(\\w+)\\s*$");
         Matcher matcher = pattern.matcher(linhaCompilada);
 

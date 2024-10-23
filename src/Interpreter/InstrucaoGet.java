@@ -5,7 +5,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class InstrucaoGet {
-    public static Boolean InstrucaoGet(String linhaCompilada, List<Var> pilha){
+    public static Boolean instrucaoGet(String linhaCompilada, List<Var> pilha){
         Pattern pattern = Pattern.compile("^\\s*get\\s+(\\w+)\\s*$");
         Matcher matcher = pattern.matcher(linhaCompilada);
 

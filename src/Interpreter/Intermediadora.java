@@ -1,100 +1,101 @@
 package Interpreter;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.util.List;
 
-import static Interpreter.InstrucaoAdd.InstrucaoAdd;
-import static Interpreter.InstrucaoCall.InstrucaoCall;
-import static Interpreter.InstrucaoConst.InstrucaoConst;
-import static Interpreter.InstrucaoDiv.InstrucaoDiv;
-/*import static Interpreter.InstrucaoElse.InstrucaoElse;*/
-import static Interpreter.InstrucaoEq.InstrucaoEq;
-import static Interpreter.InstrucaoGe.InstrucaoGe;
-import static Interpreter.InstrucaoGet.InstrucaoGet;
-import static Interpreter.InstrucaoGt.InstrucaoGt;
-/*import static Interpreter.InstrucaoIf;*/
-import static Interpreter.InstrucaoLe.InstrucaoLe;
-import static Interpreter.InstrucaoLoad.InstrucaoLoad;
-import static Interpreter.InstrucaoLt.InstrucaoLt;
-import static Interpreter.InstrucaoMul.InstrucaoMul;
-import static Interpreter.InstrucaoNe.InstrucaoNe;
-import static Interpreter.InstrucaoNew.InstrucaoNew;
-import static Interpreter.InstrucaoPop.InstrucaoPop;
-import static Interpreter.InstrucaoRet.InstrucaoRet;
-import static Interpreter.InstrucaoSet.InstrucaoSet;
-import static Interpreter.InstrucaoStore.InstrucaoStore;
-import static Interpreter.InstrucaoSub.InstrucaoSub;
-import static Interpreter.DefinicaoClasse.DefinicaoClasse;
+import static Interpreter.DefinicaoClasse.definicaoClasse;
+import static Interpreter.InstrucaoAdd.instrucaoAdd;
+import static Interpreter.InstrucaoCall.instrucaoCall;
+import static Interpreter.InstrucaoConst.instrucaoConst;
+import static Interpreter.InstrucaoDiv.instrucaoDiv;
+import static Interpreter.InstrucaoEq.instrucaoEq;
+import static Interpreter.InstrucaoGe.instrucaoGe;
+import static Interpreter.InstrucaoGet.instrucaoGet;
+import static Interpreter.InstrucaoGt.instrucaoGt;
+import static Interpreter.InstrucaoLe.instrucaoLe;
+import static Interpreter.InstrucaoLoad.instrucaoLoad;
+import static Interpreter.InstrucaoLt.instrucaoLt;
+import static Interpreter.InstrucaoMul.instrucaoMul;
+import static Interpreter.InstrucaoNe.instrucaoNe;
+import static Interpreter.InstrucaoNew.instrucaoNew;
+import static Interpreter.InstrucaoPop.instrucaoPop;
+import static Interpreter.InstrucaoRet.instrucaoRet;
+import static Interpreter.InstrucaoSet.instrucaoSet;
+import static Interpreter.InstrucaoStore.instrucaoStore;
+import static Interpreter.InstrucaoSub.instrucaoSub;
+import static Interpreter.DefinicaoClasse.definicaoClasse;
+import static Interpreter.InstrucaoIfElse.instrucaoIfElse;
 
 
 
 
 public class Intermediadora {
 
-    public static void Intermediadora(String linhaCompilada, List<Var> pilha, BufferedReader br){
+    public static void Intermediadora(String linhaCompilada, List<Var> pilha, BufferedReader br) throws IOException {
         Boolean resposta;
 
-        resposta = InstrucaoStore(linhaCompilada, pilha);
+        resposta = instrucaoStore(linhaCompilada, pilha);
         if(!resposta){
 
-            resposta = InstrucaoSub(linhaCompilada, pilha);
+            resposta = instrucaoSub(linhaCompilada, pilha);
             if(!resposta){
 
-                resposta = InstrucaoAdd(linhaCompilada, pilha);
+                resposta = instrucaoAdd(linhaCompilada, pilha);
                 if(!resposta){
 
-                    resposta = InstrucaoCall(linhaCompilada, pilha);
+                    resposta = instrucaoCall(linhaCompilada, pilha);
                     if(!resposta){
 
-                        resposta = InstrucaoConst(linhaCompilada, pilha);
+                        resposta = instrucaoConst(linhaCompilada, pilha);
                         if(!resposta){
 
-                            resposta = InstrucaoDiv(linhaCompilada, pilha);
+                            resposta = instrucaoDiv(linhaCompilada, pilha);
                             if(!resposta){
 
-                                resposta = InstrucaoEq(linhaCompilada, pilha);
+                                resposta = instrucaoEq(linhaCompilada, pilha);
                                 if(!resposta){
 
-                                    resposta = InstrucaoGe(linhaCompilada, pilha);
+                                    resposta = instrucaoGe(linhaCompilada, pilha);
                                     if(!resposta){
 
-                                        resposta = InstrucaoGet(linhaCompilada, pilha);
+                                        resposta = instrucaoGet(linhaCompilada, pilha);
                                         if(!resposta){
 
-                                            resposta = InstrucaoGt(linhaCompilada, pilha);
+                                            resposta = instrucaoGt(linhaCompilada, pilha);
                                             if(!resposta){
 
-                                                resposta = InstrucaoLe(linhaCompilada, pilha);
+                                                resposta = instrucaoLe(linhaCompilada, pilha);
                                                 if(!resposta){
 
-                                                    resposta = InstrucaoLoad(linhaCompilada, pilha);
+                                                    resposta = instrucaoLoad(linhaCompilada, pilha);
                                                     if(!resposta){
 
-                                                        resposta = InstrucaoLt(linhaCompilada, pilha);
+                                                        resposta = instrucaoLt(linhaCompilada, pilha);
                                                         if(!resposta){
 
-                                                            resposta = InstrucaoMul(linhaCompilada, pilha);
+                                                            resposta = instrucaoMul(linhaCompilada, pilha);
                                                             if(!resposta){
 
-                                                                resposta = InstrucaoNe(linhaCompilada, pilha);
+                                                                resposta = instrucaoNe(linhaCompilada, pilha);
                                                                 if(!resposta){
 
-                                                                    resposta = InstrucaoNew(linhaCompilada, pilha);
+                                                                    resposta = instrucaoNew(linhaCompilada, pilha);
                                                                     if(!resposta){
 
-                                                                        resposta = InstrucaoPop(linhaCompilada, pilha);
+                                                                        resposta = instrucaoPop(linhaCompilada, pilha);
                                                                         if(!resposta){
 
-                                                                            resposta = InstrucaoRet(linhaCompilada, pilha);
+                                                                            resposta = instrucaoRet(linhaCompilada, pilha);
                                                                             if(!resposta){
 
-                                                                                resposta = InstrucaoSet(linhaCompilada, pilha);
+                                                                                resposta = instrucaoSet(linhaCompilada, pilha);
                                                                                 if(!resposta){
 
-                                                                                    resposta = DefinicaoClasse(linhaCompilada, pilha, br);
+                                                                                    resposta = definicaoClasse(linhaCompilada, pilha, br);
                                                                                     if(!resposta){
 
-
+                                                                                        resposta = instrucaoIfElse(linhaCompilada, pilha, br);
                                                                                     }
                                                                                 }
                                                                             }

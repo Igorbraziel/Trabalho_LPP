@@ -5,7 +5,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class InstrucaoNe {
-    public static Boolean InstrucaoNe(String linhaCompilada, List<Var> pilha){
+    public static Boolean instrucaoNe(String linhaCompilada, List<Var> pilha){
         Pattern pattern = Pattern.compile("^\\s*ne\\s*$");
         Matcher matcher = pattern.matcher(linhaCompilada);
 

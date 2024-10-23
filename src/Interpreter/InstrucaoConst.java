@@ -5,7 +5,7 @@ import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 
 public class InstrucaoConst {
-    public static Boolean InstrucaoConst(String linhaCompilada, List<Var> pilha) {
+    public static Boolean instrucaoConst(String linhaCompilada, List<Var> pilha) {
         Pattern pattern = Pattern.compile("^\\s*const\\s+(-?\\d+)\\s*$");
         Matcher matcher = pattern.matcher(linhaCompilada);
 

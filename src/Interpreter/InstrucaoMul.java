@@ -5,7 +5,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class InstrucaoMul {
-    public static Boolean InstrucaoMul(String linhaCompilada, List<Var> pilha){
+    public static Boolean instrucaoMul(String linhaCompilada, List<Var> pilha){
         Pattern pattern = Pattern.compile("^\\s*mul\\s*$");
         Matcher matcher = pattern.matcher(linhaCompilada);
 

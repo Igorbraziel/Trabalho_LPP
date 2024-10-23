@@ -5,7 +5,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class InstrucaoGt {
-    public static Boolean InstrucaoGt(String linhaCompilada, List<Var> pilha){
+    public static Boolean instrucaoGt(String linhaCompilada, List<Var> pilha){
         Pattern pattern = Pattern.compile("^\\s*gt\\s*$");
         Matcher matcher = pattern.matcher(linhaCompilada);
 
