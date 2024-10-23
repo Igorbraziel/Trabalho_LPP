@@ -23,7 +23,9 @@ public class BoolCompiler {
 
                     while(linha != null){
                         linhaCompilada = regex.mainRgex(linha, br);
-                        bw.write(linhaCompilada);
+                        if(linhaCompilada != "FALHA") {
+                            bw.write(linhaCompilada);
+                        }
                         linha = br.readLine();
                     }
 
@@ -35,7 +37,7 @@ public class BoolCompiler {
             }
         } catch(Exception error){
             System.out.println("Os Arquivos de entrada e saída devem ser informados na execução do programa");
-            System.out.println("Error: " + error.getMessage());
+            error.printStackTrace();
         }
 
     }

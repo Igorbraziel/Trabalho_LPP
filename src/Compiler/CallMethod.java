@@ -43,12 +43,13 @@ public class CallMethod {
 
                 pattern = Pattern.compile("([a-zA-Z]+)");
                 matcher = pattern.matcher(parametros);
-                matcher.find();
+                if(matcher.find()) { // TINHA UM ERRO AQUI NAO TINHA IF
 
-                separatedParamether = matcher.group(1);
+                    separatedParamether = matcher.group(1);
 
-                allPar.add(separatedParamether);
+                    allPar.add(separatedParamether);
 
+                }
                 pattern = Pattern.compile("^[\\s]*[a-zA-Z]+[\\s,]+([a-zA-Z\\s,]+)$");
                 matcher = pattern.matcher(parametros);
                 resultadoPop = matcher.find();
