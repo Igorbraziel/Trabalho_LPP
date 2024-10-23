@@ -18,6 +18,7 @@ public class BoolInterpreter {
         String arquivoEntrada;
         /*Stack<Object> pilha = new Stack<>();*/
         List<Var> pilhaList = new LinkedList<Var>();
+        List<Var> listaDaMemoria = new LinkedList<Var>();
 
 
         try{
@@ -34,7 +35,7 @@ public class BoolInterpreter {
             } catch (IOException error){
                 System.out.println("Error: " + error.getMessage());
             }
-        } catch(Exception error){
+        } catch(ArrayIndexOutOfBoundsException error){
             System.out.println("O arquivo de entrada compilado deve ser informado na execução do programa");
             System.out.println("Error: " + error.getMessage());
         }
