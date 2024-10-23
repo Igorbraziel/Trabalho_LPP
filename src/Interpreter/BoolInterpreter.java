@@ -25,7 +25,7 @@ public class BoolInterpreter {
 
                 while(linhaCompilada != null){
                     System.out.println(linhaCompilada);
-                    Intermediadora(linhaCompilada, pilhaList );
+                    Intermediadora(linhaCompilada, pilhaList, br);
                     linhaCompilada = br.readLine();
                 }
             } catch (IOException error){

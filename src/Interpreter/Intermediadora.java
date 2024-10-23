@@ -1,5 +1,6 @@
 package Interpreter;
 
+import java.io.BufferedReader;
 import java.util.List;
 
 import static Interpreter.InstrucaoAdd.InstrucaoAdd;
@@ -23,13 +24,14 @@ import static Interpreter.InstrucaoRet.InstrucaoRet;
 import static Interpreter.InstrucaoSet.InstrucaoSet;
 import static Interpreter.InstrucaoStore.InstrucaoStore;
 import static Interpreter.InstrucaoSub.InstrucaoSub;
+import static Interpreter.DefinicaoClasse.DefinicaoClasse;
 
 
 
 
 public class Intermediadora {
 
-    public static void Intermediadora(String linhaCompilada, List<Var> pilha){
+    public static void Intermediadora(String linhaCompilada, List<Var> pilha, BufferedReader br){
         Boolean resposta;
 
         resposta = InstrucaoStore(linhaCompilada, pilha);
@@ -89,7 +91,11 @@ public class Intermediadora {
                                                                                 resposta = InstrucaoSet(linhaCompilada, pilha);
                                                                                 if(!resposta){
 
+                                                                                    resposta = DefinicaoClasse(linhaCompilada, pilha, br);
+                                                                                    if(!resposta){
 
+
+                                                                                    }
                                                                                 }
                                                                             }
                                                                         }
