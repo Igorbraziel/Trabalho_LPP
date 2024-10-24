@@ -40,22 +40,22 @@ public class BoolInterpreter {
             error.printStackTrace();
         }
 
-        List<EstruturaObjeto> listaEst = getListaEstruturaClasses();
-
-
-
-        System.out.println("\n\nListagem das classes\n");
-        for(int i = 0; i<listaEst.size(); i++) {
-            System.out.println("Nome da classe: " + listaEst.get(i).getClassName());
-            System.out.print("Nome das Variáveis: " + listaEst.get(i).getVariaveisDaClasse());
-
-            System.out.println("");
-            for (int j = 0; j < listaEst.get(i).getMetodos().size(); j++) {
-                System.out.println("Nome do metodo: " + listaEst.get(i).getMetodos().get(j).getNome());
-                for(int k = 0; k<listaEst.get(i).getMetodos().get(j).getInstrucoes().size(); k++) {
-                    System.out.println(listaEst.get(i).getMetodos().get(j).getInstrucoes().get(k));
-                }
-            }
-        }
+//        List<EstruturaObjeto> listaEst = getListaEstruturaClasses();
+//
+//
+//
+//        System.out.println("\n\nListagem das classes\n");
+//        for(int i = 0; i<listaEst.size(); i++) {
+//            System.out.println("Nome da classe: " + listaEst.get(i).getClassName());
+//            System.out.print("Nome das Variáveis: " + listaEst.get(i).getVariaveisDaClasse());
+//
+//            System.out.println("");
+//            for (int j = 0; j < listaEst.get(i).getMetodos().size(); j++) {
+//                System.out.println("Nome do metodo: " + listaEst.get(i).getMetodos().get(j).getNome());
+//                for(int k = 0; k<listaEst.get(i).getMetodos().get(j).getInstrucoes().size(); k++) {
+//                    System.out.println(listaEst.get(i).getMetodos().get(j).getInstrucoes().get(k));
+//                }
+//            }
+//        }
     }
 }

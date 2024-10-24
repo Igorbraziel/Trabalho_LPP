@@ -86,7 +86,7 @@ public class DefinicaoClasse {
 //                    System.out.println(metodos.get(i).getInstrucoes().get(j));
 //                }
 //            }
-            addEstrutura(new EstruturaObjeto(className, metodos, variaveisDaClasse));
+            addEstrutura(className, new EstruturaObjeto(className, metodos, variaveisDaClasse));
 
 //            System.out.println("Acabou a classe");
             return true;

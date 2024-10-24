@@ -36,7 +36,7 @@ end-class
 main()
 vars a, b, c
 begin
-    const 70
+    const 60
     store a
     const 50
     store b
@@ -44,5 +44,6 @@ begin
     load a
     sub
     store c
-    load c
+    new classeTeste
+    store d
 end

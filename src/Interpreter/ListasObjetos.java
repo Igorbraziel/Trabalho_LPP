@@ -6,7 +6,7 @@ import java.util.List;
 
 public class ListasObjetos {
     //ARMAZENA O ESQUELETO DAS CLASSES QUE SÃO DESCRITAS ANTES DO PROGRAMA COMEÇAR
-    private static List<EstruturaObjeto> listaEstruturaClasses = new LinkedList<EstruturaObjeto>();
+    private static HashMap<String, EstruturaObjeto> listaEstruturaClasses = new HashMap<>();
     /*SIMULA OS DIFERENTES ESCOPOS DE VARIAVEIS DENTRO DO PROGRAMA
     * ARMAZENANDO O NOME DO ESCOPO E OS HASHMAPS REFERENTES A CADA ESCOPO*/
     private static HashMap<String, HashMap<String, Var>> escopos = new HashMap<String, HashMap<String, Var>>();
@@ -27,7 +27,7 @@ public class ListasObjetos {
     public static LinkedList<Var> getMemoriaFisica() {
         return memoriaFisica;
     }
-    public static List<EstruturaObjeto> getListaEstruturaClasses() {
+    public static HashMap<String, EstruturaObjeto> getListaEstruturaClasses() {
         return listaEstruturaClasses;
     }
     public static LinkedList<String> getFuncaoEmExecucao() {
@@ -49,16 +49,16 @@ public class ListasObjetos {
         ListasObjetos.funcaoEmExecucao = funcaoEmExecucao;
     }
 
-    public static void addEstrutura(EstruturaObjeto estrutura){
-        listaEstruturaClasses.addFirst(estrutura);
+    public static void addEstrutura(String nomeClasse, EstruturaObjeto estrutura){
+        listaEstruturaClasses.put(nomeClasse, estrutura);
     }
-    public static EstruturaObjeto getClasseEspecifica(String nome){
-        EstruturaObjeto objeto = new EstruturaObjeto();
-        for(int i = 0; i < listaEstruturaClasses.size(); i++){
-            if(listaEstruturaClasses.get(i).getClassName().equals(nome)){
-                objeto = listaEstruturaClasses.get(i);
-            }
-        }
-        return objeto;
-    }
+//    public static EstruturaObjeto getClasseEspecifica(String nome){
+//        EstruturaObjeto objeto = new EstruturaObjeto();
+//        for(int i = 0; i < listaEstruturaClasses.size(); i++){
+//            if(listaEstruturaClasses.get(i).getClassName().equals(nome)){
+//                objeto = listaEstruturaClasses.get(i);
+//            }
+//        }
+//        return objeto;
+//    }
 }
