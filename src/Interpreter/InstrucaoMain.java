@@ -6,15 +6,13 @@ import java.util.regex.Pattern;
 import static Interpreter.ListasObjetos.*;
 
 
-public class InstrucaoNew {
-    public static Boolean instrucaoNew(String linhaCompilada, List<Var> pilha){
-        Pattern pattern = Pattern.compile("^\\s*new\\s+([a-zA-Z]+)\\s*$");
+public class InstrucaoMain {
+    public static Boolean instrucaoMain(String linhaCompilada){
+        Pattern pattern = Pattern.compile("^\\s*main[(][)]\\s*$");
         Matcher matcher = pattern.matcher(linhaCompilada);
 
         if(matcher.find()){
-            System.out.println("Instrucao NEW");
-
-            //addObjeto(getClasseEspecifica(matcher.group(1)));
+            getFuncaoEmExecucao().addFirst("main");
             return true;
         }
         return false;

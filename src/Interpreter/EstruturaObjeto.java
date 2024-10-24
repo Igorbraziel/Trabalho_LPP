@@ -9,12 +9,12 @@ import java.util.List;
 public class EstruturaObjeto {
     private String className;
     private List<DefinicaoMetodo> metodos = new LinkedList<DefinicaoMetodo>();
-    private List<Var> listaVars = new LinkedList<Var>();
+    private String variaveisDaClasse;
 
-    EstruturaObjeto(String className, List<DefinicaoMetodo> metodos, List<Var> listaVars){
+    EstruturaObjeto(String className, List<DefinicaoMetodo> metodos, String variaveisDaClasse){
         this.metodos = metodos;
         this.className = className;
-        this.listaVars = listaVars;
+        this.variaveisDaClasse = variaveisDaClasse;
     }
     EstruturaObjeto(){
         //
@@ -26,13 +26,12 @@ public class EstruturaObjeto {
     public List<DefinicaoMetodo> getMetodos() {
         return metodos;
     }
-    public List<Var> getListaVars() {
-        return listaVars;
+    public String getVariaveisDaClasse() {
+        return variaveisDaClasse;
     }
 
-    public void setListaVars(List<Var> listaVars) {
-        this.listaVars = listaVars;
-    }
+
+    public void setVariaveisDaClasse(String variaveisDaClasse){this.variaveisDaClasse = variaveisDaClasse;}
     public void setClassName(String className) {
         this.className = className;
     }

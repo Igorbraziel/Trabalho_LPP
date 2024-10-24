@@ -1,20 +1,20 @@
 package Interpreter;
 
 public class Var<T> {
-    private String nome;
+    private String cor;
     private T valor;
 
-    public Var(String nome, T valor) {
-        this.nome = nome;
+    public Var(String cor, T valor) {
+        this.cor = cor;
         this.valor = valor;
     }
 
-    public String getNome() {
-        return nome;
+    public String getCor() {
+        return cor;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setCor(String cor) {
+        this.cor = cor;
     }
 
     public T getValor() {
@@ -27,6 +27,6 @@ public class Var<T> {
 
     @Override
     public String toString() {
-        return "Var [nome=" + nome + ", valor=" + valor + "]";
+        return "Var [cor=" + cor + ", valor=" + valor + "]";
     }
 }

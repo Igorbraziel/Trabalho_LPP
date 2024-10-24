@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import static Interpreter.ListasObjetos.*;
-import static Interpreter.InstrucaoVars.InstrucaoVars;
+import static Interpreter.InstrucaoVars.instrucaoVars;
 
 import static Interpreter.Intermediadora.Intermediadora;
 
@@ -19,7 +19,8 @@ public class DefinicaoClasse {
         Matcher matcher = pattern.matcher(linhaCompilada);
         Boolean achouMatch;
         String className;
-        List<Var> listaVars = new LinkedList<Var>();
+        //List<Var> listaVars = new LinkedList<Var>();
+        String variaveisDaClasse = "";
         List<DefinicaoMetodo> metodos = new LinkedList<DefinicaoMetodo>();
 
         if(matcher.find()){
@@ -32,7 +33,9 @@ public class DefinicaoClasse {
                 matcher = pattern.matcher(linhaCompilada);
                 achouMatch = matcher.find();
                 if (achouMatch) {
-                    listaVars = InstrucaoVars(matcher.group(1));
+                    // AS LISTAS DE VARIÁVEIS TEM QUE ESTAR NO ESCOPO E NÃO AQUI
+                    //listaVars = InstrucaoVars(matcher.group(1), "mainPorEnquanto");
+                    variaveisDaClasse = linhaCompilada;
                 }
                 achouMatch = !achouMatch;
 
@@ -83,7 +86,7 @@ public class DefinicaoClasse {
 //                    System.out.println(metodos.get(i).getInstrucoes().get(j));
 //                }
 //            }
-            addEstrutura(new EstruturaObjeto(className, metodos, listaVars));
+            addEstrutura(new EstruturaObjeto(className, metodos, variaveisDaClasse));
 
 //            System.out.println("Acabou a classe");
             return true;

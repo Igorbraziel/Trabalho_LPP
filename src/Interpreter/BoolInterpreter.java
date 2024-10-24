@@ -19,6 +19,7 @@ public class BoolInterpreter {
         /*Stack<Object> pilha = new Stack<>();*/
         List<Var> pilhaList = new LinkedList<Var>();
 
+        getFuncaoEmExecucao().addFirst("main");
 
         try{
             arquivoEntrada = args[0];
@@ -46,10 +47,8 @@ public class BoolInterpreter {
         System.out.println("\n\nListagem das classes\n");
         for(int i = 0; i<listaEst.size(); i++) {
             System.out.println("Nome da classe: " + listaEst.get(i).getClassName());
-            System.out.print("Nome das Variáveis: ");
-            for(int j = 0; j<listaEst.get(i).getListaVars().size(); j++){
-                System.out.print(listaEst.get(i).getListaVars().get(j).getNome() + ", ");
-            }
+            System.out.print("Nome das Variáveis: " + listaEst.get(i).getVariaveisDaClasse());
+
             System.out.println("");
             for (int j = 0; j < listaEst.get(i).getMetodos().size(); j++) {
                 System.out.println("Nome do metodo: " + listaEst.get(i).getMetodos().get(j).getNome());

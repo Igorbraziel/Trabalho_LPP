@@ -1,38 +1,52 @@
 package Interpreter;
 
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 
-//CRIA TRÊS LISTAS, UMA DE ESTRUTURAS DAS CLASSES DECLARADAS.
-// A OUTRA DE OBJETOS INSTANCIADOS COM BASE NESSAS ESTRUTURAS DECLARADAS,
-//E A OUTRA DE VARIAVEIS DECLARADAS
 public class ListasObjetos {
+
     private static List<EstruturaObjeto> listaEstruturaClasses = new LinkedList<EstruturaObjeto>();
-    private static List<EstruturaObjeto> objetosInstanciados = new LinkedList<EstruturaObjeto>();
-    private static List<Var> variaveisDeclaradas = new LinkedList<Var>();
+    private static HashMap<String, HashMap<String, Var>> escopos = new HashMap<String, HashMap<String, Var>>();
+    private static LinkedList<Var> memoriaFisica = new LinkedList<Var>();
+    private static String corDaVez = "cinza";
+    private static LinkedList<String> funcaoEmExecucao = new LinkedList<>();
 
 
-    public static void addEstrutura(EstruturaObjeto estrutura){
-        listaEstruturaClasses.addFirst(estrutura);
+    public static String getCorDaVez() {
+        return corDaVez;
     }
-    public static void addObjeto(EstruturaObjeto objeto){
-        objetosInstanciados.addFirst(objeto);
+    public static HashMap<String, HashMap<String, Var>> getEscopos() {
+        return escopos;
     }
-    public static void addVariavel(Var variavel){
-        variaveisDeclaradas.addFirst(variavel);
-    }
-
-
-    public static List<EstruturaObjeto> getObjetosInstanciados() {
-        return objetosInstanciados;
+    public static LinkedList<Var> getMemoriaFisica() {
+        return memoriaFisica;
     }
     public static List<EstruturaObjeto> getListaEstruturaClasses() {
         return listaEstruturaClasses;
     }
-    public static List<Var> getVariaveisDeclaradas() {
-        return variaveisDeclaradas;
+    public static LinkedList<String> getFuncaoEmExecucao() {
+        return funcaoEmExecucao;
     }
 
+    //PRECISA MESMO DESSES SETs?
+    public static void setCorDaVez(String corDaVez) {
+        ListasObjetos.corDaVez = corDaVez;
+    }
+    public static void setMemoriaFisica(LinkedList<Var> memoriaFisica) {
+        ListasObjetos.memoriaFisica = memoriaFisica;
+    }
+
+    public static void setEscopos(HashMap<String, HashMap<String, Var>> escopos) {
+        ListasObjetos.escopos = escopos;
+    }
+    public static void setFuncaoEmExecucao(LinkedList<String> funcaoEmExecucao) {
+        ListasObjetos.funcaoEmExecucao = funcaoEmExecucao;
+    }
+
+    public static void addEstrutura(EstruturaObjeto estrutura){
+        listaEstruturaClasses.addFirst(estrutura);
+    }
     public static EstruturaObjeto getClasseEspecifica(String nome){
         EstruturaObjeto objeto = new EstruturaObjeto();
         for(int i = 0; i < listaEstruturaClasses.size(); i++){

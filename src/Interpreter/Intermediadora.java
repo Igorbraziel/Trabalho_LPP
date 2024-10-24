@@ -26,6 +26,10 @@ import static Interpreter.InstrucaoStore.instrucaoStore;
 import static Interpreter.InstrucaoSub.instrucaoSub;
 import static Interpreter.DefinicaoClasse.definicaoClasse;
 import static Interpreter.InstrucaoIfElse.instrucaoIfElse;
+import static Interpreter.InstrucaoVars.instrucaoVars;
+import static Interpreter.ListasObjetos.*;
+
+
 
 
 
@@ -68,7 +72,7 @@ public class Intermediadora {
                                                 resposta = instrucaoLe(linhaCompilada, pilha);
                                                 if(!resposta){
 
-                                                    resposta = instrucaoLoad(linhaCompilada, pilha);
+                                                    resposta = instrucaoLoad(linhaCompilada, pilha, "main");
                                                     if(!resposta){
 
                                                         resposta = instrucaoLt(linhaCompilada, pilha);
@@ -95,7 +99,14 @@ public class Intermediadora {
                                                                                     resposta = definicaoClasse(linhaCompilada, pilha, br);
                                                                                     if(!resposta){
 
-                                                                                        resposta = instrucaoIfElse(linhaCompilada, pilha, br);
+                                                                                        //resposta = instrucaoIfElse(linhaCompilada, pilha, br);
+                                                                                        if(!resposta){
+
+                                                                                            resposta = instrucaoVars(linhaCompilada, getFuncaoEmExecucao().getFirst());
+                                                                                            if(!resposta){
+
+                                                                                            }
+                                                                                        }
                                                                                     }
                                                                                 }
                                                                             }

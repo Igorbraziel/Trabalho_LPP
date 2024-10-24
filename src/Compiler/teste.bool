@@ -23,9 +23,8 @@ end-class
 main()
 vars a, b, c
 begin
-    a = 40
+    a = 60
     b = 50
     c = b - a
-    io.print(c)
     d = new classeTeste
 end

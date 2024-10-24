@@ -1,0 +1,48 @@
+
+class classeTeste
+    vars y, x, w
+
+    method subtracao()
+    vars x
+    begin
+        const 10
+        store y
+        const 5
+        store x
+        load x
+        load y
+        sub
+        store w
+        load w
+        ret
+    end-method
+
+    method multiplicacao()
+    vars x
+    begin
+        const 10
+        store y
+        const 5
+        store x
+        load x
+        load y
+        mul
+        store w
+        load w
+        ret
+    end-method
+end-class
+
+main()
+vars a, b, c
+begin
+    const 70
+    store a
+    const 50
+    store b
+    load b
+    load a
+    sub
+    store c
+    load c
+end
