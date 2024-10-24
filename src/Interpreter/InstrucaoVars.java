@@ -73,7 +73,7 @@ public class InstrucaoVars {
                 matcher.find();
                 separatedParamether = matcher.group(1);
                 Var variavel = new Var("", 0);
-                variavel.setCor(getCorDaVez());
+                //variavel.setCor(getCorDaVez());
                 //listaVars.addFirst(variavel);
                 getMemoriaFisica().addFirst(variavel);
                 referenciaVariaveis.put(separatedParamether, variavel);

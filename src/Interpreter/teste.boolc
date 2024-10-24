@@ -45,5 +45,8 @@ begin
     sub
     store c
     new classeTeste
-    store d
+    store b
+    load b
+    get y
+    store a
 end

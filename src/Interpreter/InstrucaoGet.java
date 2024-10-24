@@ -10,6 +10,16 @@ public class InstrucaoGet {
         Matcher matcher = pattern.matcher(linhaCompilada);
 
         if(matcher.find()){
+            Var variavelComObjeto = pilha.getFirst();
+            pilha.removeFirst();
+            if (variavelComObjeto.getValor() instanceof EstruturaObjeto) {
+                Var variavelPilha = new Var<>("", ((EstruturaObjeto) variavelComObjeto.getValor()).getVariaveisDoObjeto().get(matcher.group(1)).getValor());
+                pilha.addFirst(variavelPilha);
+
+                System.out.println(pilha);
+
+                return true;
+            }
         }
         return false;
     }

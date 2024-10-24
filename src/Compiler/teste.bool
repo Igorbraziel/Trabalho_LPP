@@ -26,5 +26,6 @@ begin
     a = 60
     b = 50
     c = b - a
-    d = new classeTeste
+    b = new classeTeste
+    a = b.y
 end
