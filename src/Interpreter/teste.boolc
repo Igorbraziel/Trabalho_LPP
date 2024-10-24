@@ -34,7 +34,7 @@ class classeTeste
 end-class
 
 main()
-vars a, b, c
+vars a, b, c, d, e
 begin
     const 60
     store a
@@ -49,4 +49,16 @@ begin
     load b
     get y
     store a
+    const 20
+    load b
+    set x
+    load c
+    load b
+    set w
+    load b
+    get w
+    store d
+    load b
+    get x
+    store e
 end

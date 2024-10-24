@@ -21,11 +21,15 @@ class classeTeste
 end-class
 
 main()
-vars a, b, c
+vars a, b, c, d, e
 begin
     a = 60
     b = 50
     c = b - a
     b = new classeTeste
     a = b.y
+    b.x = 20
+    b.w = c
+    d = b.w
+    e = b.x
 end
