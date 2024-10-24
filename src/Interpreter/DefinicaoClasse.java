@@ -33,8 +33,8 @@ public class DefinicaoClasse {
                 matcher = pattern.matcher(linhaCompilada);
                 achouMatch = matcher.find();
                 if (achouMatch) {
-                    // AS LISTAS DE VARIÁVEIS TEM QUE ESTAR NO ESCOPO E NÃO AQUI
-                    //listaVars = InstrucaoVars(matcher.group(1), "mainPorEnquanto");
+                    /*ARMAZENA A LINHA DE DECLARAÇÃO DE VARIÁVEIS PARA POSTERIORMENTE CRIAR OS
+                    * ESCOPOS DE CADA OBJETO SEPARADAMENTE*/
                     variaveisDaClasse = linhaCompilada;
                 }
                 achouMatch = !achouMatch;

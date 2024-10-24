@@ -5,11 +5,16 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class ListasObjetos {
-
+    //ARMAZENA O ESQUELETO DAS CLASSES QUE SÃO DESCRITAS ANTES DO PROGRAMA COMEÇAR
     private static List<EstruturaObjeto> listaEstruturaClasses = new LinkedList<EstruturaObjeto>();
+    /*SIMULA OS DIFERENTES ESCOPOS DE VARIAVEIS DENTRO DO PROGRAMA
+    * ARMAZENANDO O NOME DO ESCOPO E OS HASHMAPS REFERENTES A CADA ESCOPO*/
     private static HashMap<String, HashMap<String, Var>> escopos = new HashMap<String, HashMap<String, Var>>();
+    //SIMULA A MEMÓRIA DO COMPUTADOR. É UMA LISTA QUE ARMAZENA TODOS OS DADOS USADOS NO PROGRAMA
     private static LinkedList<Var> memoriaFisica = new LinkedList<Var>();
+    //MARCADOR DE COR PARA O GARBAGE COLECTOR
     private static String corDaVez = "cinza";
+    //ARMAZENA UMA PILHA DE STINGS PARA REPRESENTAR QUAL ESCOPO DE VARIÁVEIS ESTÁ SENDO EXECUTADO
     private static LinkedList<String> funcaoEmExecucao = new LinkedList<>();
 
 

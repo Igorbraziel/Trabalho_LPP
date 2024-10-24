@@ -43,6 +43,8 @@ public class InstrucaoVars {
                     parametros = matcher.group(1);
                 }
             }
+
+            //CRIA UM NOVO ESCOPO DE VARIAVEIS COM AS VARIAVEIS DECLARADAS
             getEscopos().put(funcaoAtual, referenciaVariaveis);
             return true;
         }

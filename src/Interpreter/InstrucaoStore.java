@@ -15,9 +15,13 @@ public class InstrucaoStore {
         if(matcher.find()){
 
             Var variavel = new Var(getCorDaVez(), 0);
+            //PEGA O VALOR DA PRIMEIRA VARIÁVEL DA PILHA E ADICIONA NA NOVA VARIÁVEL
             variavel.setValor(pilha.getFirst().getValor());
             pilha.removeFirst();
+            //ADICIONA A NOVA VARIÁVEL A LISTA QUE SIMULA A MEMÓRIA FÍSICA
             getMemoriaFisica().addFirst(variavel);
+            /*ADICIONA A REFERÊNCIA DA NOVA VARIÁVEL AO SEU NOME CORRESPONDENTE
+            * DENTRO DO ESCOPO ADEQUADO (HASHMAP DE ESCOPOS)*/
             getEscopos().get(getFuncaoEmExecucao().getFirst()).put(matcher.group(1), variavel);
             System.out.println(pilha);
 
