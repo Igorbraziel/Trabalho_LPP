@@ -18,7 +18,7 @@ public class InstrucaoLoad {
 
             /*PEGA O VALOR DA VARIÁVEL CUJA O NOME FOI RECEBIDO, SENDO QUE, PARA ISSO
             * É NECESSÁRIO IDENTIFICAR O ESCOPO DE VARIÁVEIS EM EXECUÇÃO*/
-            Var variavel = new Var("", getEscopos().get(funcaoAtual).get(nomeVariavel).getValor());
+            Var<?> variavel = new Var<>("", getEscopos().get(funcaoAtual).get(nomeVariavel).getValor());
             pilha.addFirst(variavel);
 
             System.out.println(pilha);

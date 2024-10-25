@@ -2,14 +2,10 @@ package Interpreter;
 
 import java.io.BufferedReader;
 import java.util.LinkedList;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import static Interpreter.ListasObjetos.*;
-import static Interpreter.InstrucaoVars.instrucaoVars;
-
-import static Interpreter.Intermediadora.Intermediadora;
 
 public class DefinicaoClasse {
     public static Boolean definicaoClasse(String linhaCompilada, List<Var> pilha, BufferedReader br){

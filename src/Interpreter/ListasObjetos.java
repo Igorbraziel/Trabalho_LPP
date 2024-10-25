@@ -2,16 +2,15 @@ package Interpreter;
 
 import java.util.HashMap;
 import java.util.LinkedList;
-import java.util.List;
 
 public class ListasObjetos {
     //ARMAZENA O ESQUELETO DAS CLASSES QUE SÃO DESCRITAS ANTES DO PROGRAMA COMEÇAR
     private static HashMap<String, EstruturaObjeto> listaEstruturaClasses = new HashMap<>();
     /*SIMULA OS DIFERENTES ESCOPOS DE VARIAVEIS DENTRO DO PROGRAMA
     * ARMAZENANDO O NOME DO ESCOPO E OS HASHMAPS REFERENTES A CADA ESCOPO*/
-    private static HashMap<String, HashMap<String, Var>> escopos = new HashMap<String, HashMap<String, Var>>();
+    private static HashMap<String, HashMap<String, Var<?>>> escopos = new HashMap<String, HashMap<String, Var<?>>>();
     //SIMULA A MEMÓRIA DO COMPUTADOR. É UMA LISTA QUE ARMAZENA TODOS OS DADOS USADOS NO PROGRAMA
-    private static LinkedList<Var> memoriaFisica = new LinkedList<Var>();
+    private static LinkedList<Var<?>> memoriaFisica = new LinkedList<Var<?>>();
     //MARCADOR DE COR PARA O GARBAGE COLECTOR
     private static String corDaVez = "cinza";
     //ARMAZENA UMA PILHA DE STINGS PARA REPRESENTAR QUAL ESCOPO DE VARIÁVEIS ESTÁ SENDO EXECUTADO
@@ -21,10 +20,10 @@ public class ListasObjetos {
     public static String getCorDaVez() {
         return corDaVez;
     }
-    public static HashMap<String, HashMap<String, Var>> getEscopos() {
+    public static HashMap<String, HashMap<String, Var<?>>> getEscopos() {
         return escopos;
     }
-    public static LinkedList<Var> getMemoriaFisica() {
+    public static LinkedList<Var<?>> getMemoriaFisica() {
         return memoriaFisica;
     }
     public static HashMap<String, EstruturaObjeto> getListaEstruturaClasses() {
@@ -38,11 +37,11 @@ public class ListasObjetos {
     public static void setCorDaVez(String corDaVez) {
         ListasObjetos.corDaVez = corDaVez;
     }
-    public static void setMemoriaFisica(LinkedList<Var> memoriaFisica) {
+    public static void setMemoriaFisica(LinkedList<Var<?>> memoriaFisica) {
         ListasObjetos.memoriaFisica = memoriaFisica;
     }
 
-    public static void setEscopos(HashMap<String, HashMap<String, Var>> escopos) {
+    public static void setEscopos(HashMap<String, HashMap<String, Var<?>>> escopos) {
         ListasObjetos.escopos = escopos;
     }
     public static void setFuncaoEmExecucao(LinkedList<String> funcaoEmExecucao) {
