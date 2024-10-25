@@ -36,6 +36,8 @@ public class BoolInterpreter {
         List<Var> pilhaList = new LinkedList<>();
         int contador = 0;
 
+        
+
         getFuncaoEmExecucao().addFirst("main");
 
         try{
