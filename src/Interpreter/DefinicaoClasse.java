@@ -2,10 +2,14 @@ package Interpreter;
 
 import java.io.BufferedReader;
 import java.util.LinkedList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import static Interpreter.ListasObjetos.*;
+import static Interpreter.InstrucaoVars.instrucaoVars;
+
+import static Interpreter.Intermediadora.intermediadora;
 
 public class DefinicaoClasse {
     public static Boolean definicaoClasse(String linhaCompilada, List<Var> pilha, BufferedReader br){
@@ -41,7 +45,7 @@ public class DefinicaoClasse {
                     matcher = pattern.matcher(linhaCompilada);
                     achouMatch = matcher.find();
                     if(!achouMatch) {
-                        pattern = Pattern.compile("^\\s*method\\s+(\\w+)[(][)]\\s*$");
+                        pattern = Pattern.compile("^\\s*method\\s+(\\w+)([(][a-zA-Z,\\s]*[)])\\s*$");
                         matcher = pattern.matcher(linhaCompilada);
                         achouMatch = matcher.find();
                         if(achouMatch) {
@@ -50,6 +54,7 @@ public class DefinicaoClasse {
                             LinkedList<String> instrucoes = new LinkedList<String>();
                             //CRIA O METODO PASSANDO O NOME DELE COMO PARÂMETRO
                             DefinicaoMetodo metodo = new DefinicaoMetodo(matcher.group(1));
+                            metodo.setParametros(matcher.group(2));
                             achouMatch = !achouMatch;
                             while (!achouMatch) {
                                 linhaCompilada = br.readLine();

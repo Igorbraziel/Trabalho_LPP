@@ -18,7 +18,7 @@ public class InstrucaoDiv {
             int div = var1.getValor() / var2.getValor();
 
             Var<Integer> resultado = new Var<>("-", div);
-            pilha.add(resultado);
+            pilha.addFirst(resultado);
             System.out.println(pilha);
             return true;
         }

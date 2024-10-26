@@ -19,10 +19,10 @@ public class InstrucaoNew {
             objetoInstanciado.setClassName(getListaEstruturaClasses().get(matcher.group(1)).getClassName());
             objetoInstanciado.setVariaveisDaClasse(getListaEstruturaClasses().get(matcher.group(1)).getVariaveisDaClasse());
             objetoInstanciado.setVariaveisDoObjeto(instrucaoVarsObjetos(objetoInstanciado.getVariaveisDaClasse()));
-            Var<?> prototype = new Var<>("", 0);
+            Var prototype = new Var<>("", 0);
             objetoInstanciado.getVariaveisDoObjeto().put("_prototype", prototype);
 
-            Var<?> variavel = new Var<>("", objetoInstanciado);
+            Var variavel = new Var("", objetoInstanciado);
             pilha.addFirst(variavel);
 
             System.out.println(pilha);

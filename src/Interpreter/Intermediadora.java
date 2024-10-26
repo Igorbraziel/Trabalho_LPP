@@ -28,7 +28,7 @@ import static Interpreter.DefinicaoClasse.definicaoClasse;
 import static Interpreter.InstrucaoIfElse.instrucaoIfElse;
 import static Interpreter.InstrucaoVars.instrucaoVars;
 import static Interpreter.ListasObjetos.*;
-
+import static Interpreter.InstrucaoMain.instrucaoMain;
 
 
 
@@ -36,7 +36,7 @@ import static Interpreter.ListasObjetos.*;
 
 public class Intermediadora {
 
-    public static void Intermediadora(String linhaCompilada, List<Var> pilha, BufferedReader br) throws IOException {
+    public static void intermediadora(String linhaCompilada, List<Var> pilha, BufferedReader br) throws IOException {
         Boolean resposta;
 
         resposta = instrucaoStore(linhaCompilada, pilha);
@@ -48,7 +48,7 @@ public class Intermediadora {
                 resposta = instrucaoAdd(linhaCompilada, pilha);
                 if(!resposta){
 
-                    resposta = instrucaoCall(linhaCompilada, pilha);
+                    resposta = instrucaoCall(linhaCompilada, pilha, br);
                     if(!resposta){
 
                         resposta = instrucaoConst(linhaCompilada, pilha);
@@ -72,7 +72,7 @@ public class Intermediadora {
                                                 resposta = instrucaoLe(linhaCompilada, pilha);
                                                 if(!resposta){
 
-                                                    resposta = instrucaoLoad(linhaCompilada, pilha, "main");
+                                                    resposta = instrucaoLoad(linhaCompilada, pilha);
                                                     if(!resposta){
 
                                                         resposta = instrucaoLt(linhaCompilada, pilha);
@@ -102,9 +102,13 @@ public class Intermediadora {
                                                                                         //resposta = instrucaoIfElse(linhaCompilada, pilha, br);
                                                                                         if(!resposta){
 
-                                                                                            resposta = instrucaoVars(linhaCompilada, getFuncaoEmExecucao().getFirst());
+                                                                                            resposta = instrucaoVars(linhaCompilada);
                                                                                             if(!resposta){
 
+                                                                                                resposta = instrucaoMain(linhaCompilada);
+                                                                                                if (!resposta){
+
+                                                                                                }
                                                                                             }
                                                                                         }
                                                                                     }

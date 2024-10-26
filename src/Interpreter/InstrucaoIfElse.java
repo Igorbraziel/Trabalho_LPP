@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import static Interpreter.Intermediadora.Intermediadora;
+import static Interpreter.Intermediadora.intermediadora;
 
 // DEVEMOS PASSAR O BUFFERED READER DO PROGRAMA PRINCIPAL PARA IGNORAR AS PROXIMAS LINHAS CASO NÃO ENTRE NO IF
 // OLHAR SE A LÓGICA ESTÁ FUNCIONANDO
@@ -32,14 +32,14 @@ public class InstrucaoIfElse {
                 if(matcher.find()){ // O IF TEM ELSE
                     numeroInstrucoes = Integer.parseInt(matcher.group(2)); // NUMERO DE INTRUÇOES DO ELSE
                     for(int i = 0; i < numeroInstrucoes; i++){
-                        Intermediadora(br.readLine(), pilha, br); // EXECUTA AS INSTRUÇOES DO ELSE
+                        intermediadora(br.readLine(), pilha, br); // EXECUTA AS INSTRUÇOES DO ELSE
                     }
                 } else { // O IF NAO TEM ELSE
-                    Intermediadora(novaLinha, pilha, br); // CHAMA A INTERMEDIADORA COM A LINHA LIDA (NÃO ERA UM ELSE)
+                    intermediadora(novaLinha, pilha, br); // CHAMA A INTERMEDIADORA COM A LINHA LIDA (NÃO ERA UM ELSE)
                 }
             } else { // VAI ENTRAR NO IF
                 for(int i = 0; i < numeroInstrucoes; i++){
-                    Intermediadora(br.readLine(), pilha, br); // EXECUTA AS INTRUÇÕES DO IF
+                    intermediadora(br.readLine(), pilha, br); // EXECUTA AS INTRUÇÕES DO IF
                 }
                 String novaLinha = br.readLine(); // LE A PROXIMA LINHA APOS IF
                 pattern = Pattern.compile("^(\\s*)else\\s*(\\w+)\\s*$");
@@ -50,7 +50,7 @@ public class InstrucaoIfElse {
                         br.readLine(); // IGNORA AS INTRUCOES DO ELSE
                     }
                 } else { // O IF NAO TEM ELSE
-                    Intermediadora(novaLinha, pilha, br); // CHAMA A INTERMEDIADORA COM A LINHA LIDA (NÃO ERA UM ELSE)
+                    intermediadora(novaLinha, pilha, br); // CHAMA A INTERMEDIADORA COM A LINHA LIDA (NÃO ERA UM ELSE)
                 }
             }
 

@@ -10,7 +10,7 @@ import static Interpreter.ListasObjetos.*;
 
 public class InstrucaoVars {
 
-    public static Boolean instrucaoVars(String linhaCompilada, String funcaoAtual){
+    public static Boolean instrucaoVars(String linhaCompilada){
         List<Var> listaVars = new LinkedList<Var>();
         HashMap<String, Var> referenciaVariaveis = new HashMap<>();
         String separatedParamether, parametros;
@@ -45,7 +45,7 @@ public class InstrucaoVars {
             }
 
             //CRIA UM NOVO ESCOPO DE VARIAVEIS COM AS VARIAVEIS DECLARADAS
-            getEscopos().put(funcaoAtual, referenciaVariaveis);
+            getEscopos().put(getFuncaoEmExecucao().getFirst(), referenciaVariaveis);
             return true;
         }
         return false;

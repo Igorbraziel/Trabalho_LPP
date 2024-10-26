@@ -8,10 +8,10 @@ public class DeclaracaoMetodo {
         String falha = "FALHA";
         String linhaCompilada;
 
-        Pattern pattern = Pattern.compile("^(\\s*)method\\s*([a-zA-Z]+)[(]\\s*[)]\\s*$");
+        Pattern pattern = Pattern.compile("^(\\s*)method\\s+([a-zA-Z]+[(][a-zA-Z,\\s*]*[)])\\s*$");
         Matcher matcher = pattern.matcher(linhaOriginal);
         if (matcher.find()) {
-            linhaCompilada = "\n" + matcher.group(1) + "method " + matcher.group(2) + "()";
+            linhaCompilada = "\n" + matcher.group(1) + "method " + matcher.group(2);
             return linhaCompilada;
         }
         return falha;

@@ -18,7 +18,7 @@ public class InstrucaoMul {
             int mul = var1.getValor() * var2.getValor();
 
             Var<Integer> resultado = new Var<>("-", mul);
-            pilha.add(resultado);
+            pilha.addFirst(resultado);
             System.out.println(pilha);
             return true;
         }

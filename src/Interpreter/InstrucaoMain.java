@@ -8,7 +8,7 @@ import static Interpreter.ListasObjetos.*;
 
 public class InstrucaoMain {
     public static Boolean instrucaoMain(String linhaCompilada){
-        Pattern pattern = Pattern.compile("^\\s*main[(][)]\\s*$");
+        Pattern pattern = Pattern.compile("^\\s*main\\s*[(][)]\\s*$");
         Matcher matcher = pattern.matcher(linhaCompilada);
 
         if(matcher.find()){

@@ -18,7 +18,7 @@ public class InstrucaoAdd {
             int soma = var1.getValor() + var2.getValor();
 
             Var<Integer> resultado = new Var<>("-", soma);
-            pilha.add(resultado);
+            pilha.addFirst(resultado);
             System.out.println(pilha);
             return true;
         }

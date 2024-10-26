@@ -1,21 +1,22 @@
 class classeTeste
-    vars y, x, w
+    vars i, j, k
 
-    method subtracao()
-    vars x
+    method subtracao(x, y)
+    vars w
     begin
-        y = 10
-        x = 5
         w = x - y
         return w
     end-method
 
-    method multiplicacao()
-    vars x
+    method adicao(a, b)
+    vars x, y, w
     begin
-        y = 10
-        x = 5
-        w = x * y
+        y = new classeTeste
+        y.x = 13
+        x = 6
+        w = y.x
+        w = y.subtracao(w, x)
+        x = w + i
         return w
     end-method
 end-class
@@ -27,9 +28,11 @@ begin
     b = 50
     c = b - a
     b = new classeTeste
-    a = b.y
-    b.x = 20
-    b.w = c
-    d = b.w
-    e = b.x
+    a = b.j
+    b.i = 20
+    b.k = c
+    d = b.k
+    e = b.i
+    d = b.adicao(a, c)
+    d = a * d
 end

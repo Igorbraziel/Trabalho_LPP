@@ -10,7 +10,6 @@ public class InstrucaoSub {
         Matcher matcher = pattern.matcher(linhaCompilada);
 
         if(matcher.find()){
-
             Var<Integer> var2 = pilha.getFirst();
             pilha.removeFirst();
             Var<Integer> var1 = pilha.getFirst();

@@ -1,14 +1,10 @@
 
 class classeTeste
-    vars y, x, w
+    vars i, j, k
 
-    method subtracao()
-    vars x
+    method subtracao(x, y)
+    vars w
     begin
-        const 10
-        store y
-        const 5
-        store x
         load x
         load y
         sub
@@ -17,17 +13,28 @@ class classeTeste
         ret
     end-method
 
-    method multiplicacao()
-    vars x
+    method adicao(a, b)
+    vars x, y, w
     begin
-        const 10
+        new classeTeste
         store y
-        const 5
+        const 13
+        load y
+        set x
+        const 6
         store x
+        load y
+        get x
+        store w
+        load w
         load x
         load y
-        mul
+        call subtracao
         store w
+        load w
+        load i
+        add
+        store x
         load w
         ret
     end-method
@@ -47,18 +54,27 @@ begin
     new classeTeste
     store b
     load b
-    get y
+    get j
     store a
     const 20
     load b
-    set x
+    set i
     load c
     load b
-    set w
+    set k
     load b
-    get w
+    get k
     store d
     load b
-    get x
+    get i
     store e
+    load a
+    load c
+    load b
+    call adicao
+    store d
+    load a
+    load d
+    mul
+    store d
 end
