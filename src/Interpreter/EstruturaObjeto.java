@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static Interpreter.Intermediadora.intermediadora;
+import static Interpreter.Intermediadora.intermediadoraMetodo;
 import static Interpreter.ListasObjetos.*;
 import static Interpreter.ListasObjetos.getMemoriaFisica;
 
@@ -76,7 +76,7 @@ public class EstruturaObjeto {
             //System.out.println(getEscopos());
             try {
                 System.out.println(metodoExecutado.getInstrucoes().get(i));
-                intermediadora(metodoExecutado.getInstrucoes().get(i), pilha, br);
+                intermediadoraMetodo(metodoExecutado.getInstrucoes().get(i), pilha, br, metodoExecutado);
             } catch (Exception e){
                 System.out.println("ERROR: " + e);
             }
