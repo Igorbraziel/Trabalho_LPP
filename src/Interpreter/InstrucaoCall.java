@@ -19,7 +19,7 @@ public class InstrucaoCall {
                 EstruturaObjeto objetoChamado = ((EstruturaObjeto) pilha.getFirst().getValor());
                 pilha.removeFirst();
                 metodoChamado.setSelf(objetoChamado);
-                metodoChamado.getSelf().identificaMetodo(metodoChamado.getNome(), metodoChamado);
+                metodoChamado.getSelf().identificaMetodo(metodoChamado.getNome(), metodoChamado, objetoChamado);
                 //metodoChamado.setParametros(metodoChamado.getSelf().identificaMetodo());
                 getFuncaoEmExecucao().addFirst(  getFuncaoEmExecucao().getFirst() + "-" + metodoChamado.getSelf() + "->" + metodoChamado.getNome());
                 metodoChamado.getSelf().executaMetodo(linhaCompilada, pilha, br, metodoChamado);

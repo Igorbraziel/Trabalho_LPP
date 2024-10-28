@@ -20,11 +20,11 @@ class classeTeste
         store y
         const 13
         load y
-        set x
+        set j
         const 6
         store x
         load y
-        get x
+        get j
         store w
         load w
         load x
@@ -35,6 +35,8 @@ class classeTeste
         load i
         add
         store x
+        load x
+        store k
         load w
         ret
     end-method
@@ -73,8 +75,11 @@ begin
     load b
     call adicao
     store d
+    load b
+    get k
+    store a
     load a
     load d
     mul
-    store d
+    store e
 end

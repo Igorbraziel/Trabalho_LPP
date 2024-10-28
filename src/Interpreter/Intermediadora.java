@@ -22,7 +22,7 @@ import static Interpreter.InstrucaoNew.instrucaoNew;
 import static Interpreter.InstrucaoPop.instrucaoPop;
 import static Interpreter.InstrucaoRet.instrucaoRet;
 import static Interpreter.InstrucaoSet.instrucaoSet;
-import static Interpreter.InstrucaoStore.instrucaoStore;
+import static Interpreter.InstrucaoStore.*;
 import static Interpreter.InstrucaoSub.instrucaoSub;
 import static Interpreter.DefinicaoClasse.definicaoClasse;
 import static Interpreter.InstrucaoIfElse.instrucaoIfElse;
@@ -140,7 +140,7 @@ public class Intermediadora {
     public static void intermediadoraMetodo(String linhaCompilada, List<Var> pilha, BufferedReader br, DefinicaoMetodo metodoChamado) throws IOException {
         Boolean resposta;
 
-        resposta = instrucaoStore(linhaCompilada, pilha);
+        resposta = instrucaoStoreMetodo(linhaCompilada, pilha, metodoChamado);
         if(!resposta){
 
             resposta = instrucaoSub(linhaCompilada, pilha);

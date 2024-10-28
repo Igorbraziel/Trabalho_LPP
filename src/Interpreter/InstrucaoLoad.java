@@ -11,6 +11,7 @@ public class InstrucaoLoad {
     public static Boolean instrucaoLoad(String linhaCompilada, List<Var> pilha){
         Pattern pattern = Pattern.compile("^\\s*load\\s+(\\w+)\\s*$");
         Matcher matcher = pattern.matcher(linhaCompilada);
+        EstruturaObjeto prototipo;
 
 
         if(matcher.find()){
@@ -24,6 +25,17 @@ public class InstrucaoLoad {
                 Var variavel = new Var("", getEscopos().get(getFuncaoEmExecucao().getFirst()).get(nomeVariavel).getValor());
                 pilha.addFirst(variavel);
             }
+//            else {
+//                if(getEscopos().get(getFuncaoEmExecucao().getFirst()).containsKey("_prototype")){
+//                    if(getEscopos().get(getFuncaoEmExecucao().getFirst()).get("_prototype").getValor() instanceof EstruturaObjeto){
+//                        prototipo = ((EstruturaObjeto) getEscopos().get(getFuncaoEmExecucao().getFirst()).get("_prototype").getValor());
+//                        if(prototipo.getVariaveisDoObjeto().containsKey(nomeVariavel)){
+//                            Var variavel = new Var("", prototipo.getVariaveisDoObjeto().get(nomeVariavel).getValor());
+//                            pilha.addFirst(variavel);
+//                        }
+//                    }
+//                }
+//            }
 
 
             System.out.println(pilha);
@@ -53,8 +65,6 @@ public class InstrucaoLoad {
                 pilha.addFirst(variavel);
             } else {
 
-
-
                 if(metodoChamado.getSelf().getVariaveisDoObjeto().containsKey(nomeVariavel)){
                     Var variavel = new Var("", metodoChamado.getSelf().getVariaveisDoObjeto().get(nomeVariavel).getValor());
                     pilha.addFirst(variavel);
@@ -66,8 +76,6 @@ public class InstrucaoLoad {
 //            System.out.println(getEscopos());
 
             return true;
-
-
         }
         return false;
     }

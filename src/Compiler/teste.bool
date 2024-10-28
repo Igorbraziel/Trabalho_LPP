@@ -12,11 +12,12 @@ class classeTeste
     vars x, y, w
     begin
         y = new classeTeste
-        y.x = 13
+        y.j = 13
         x = 6
-        w = y.x
+        w = y.j
         w = y.subtracao(w, x)
         x = w + i
+        k = x
         return w
     end-method
 end-class
@@ -34,5 +35,6 @@ begin
     d = b.k
     e = b.i
     d = b.adicao(a, c)
-    d = a * d
+    a = b.k
+    e = a * d
 end

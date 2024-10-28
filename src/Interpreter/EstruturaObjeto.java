@@ -54,13 +54,26 @@ public class EstruturaObjeto {
         this.metodos = metodos;
     }
 
-    public void identificaMetodo(String nome, DefinicaoMetodo metodoParametro){
-        for(DefinicaoMetodo item : metodos){
-            if (item.getNome().equals(nome)){
-                metodoParametro.setInstrucoes(item.getInstrucoes());
-                metodoParametro.setParametros(item.getParametros());
+    public void identificaMetodo(String nome, DefinicaoMetodo metodoParametro, EstruturaObjeto objetoChamado){
+        Boolean achouMetodo = false;
+
+        //while(!achouMetodo) {
+            for (DefinicaoMetodo item : metodos) {
+                if (item.getNome().equals(nome)) {
+                    metodoParametro.setInstrucoes(item.getInstrucoes());
+                    metodoParametro.setParametros(item.getParametros());
+                    achouMetodo = true;
+                }
             }
-        }
+            if(!achouMetodo){
+                if(objetoChamado.getVariaveisDoObjeto().containsKey("_prototype")){
+                    if(objetoChamado.getVariaveisDoObjeto().get("_prototype").getValor() instanceof EstruturaObjeto){
+                        EstruturaObjeto objetoIntermediario = (EstruturaObjeto) objetoChamado.getVariaveisDoObjeto().get("_prototype").getValor();
+                        identificaMetodo(nome, metodoParametro, objetoIntermediario);
+                    }
+                }
+            }
+        //}
     }
 
     public Boolean executaMetodo(String linhaCompilada, List<Var> pilha, BufferedReader br, DefinicaoMetodo metodoExecutado){
