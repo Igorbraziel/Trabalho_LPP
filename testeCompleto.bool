@@ -1,0 +1,141 @@
+class Base
+    vars id, name
+
+    method showid()
+    vars x, abc
+    begin
+        self.id = 10
+        x = self.id
+        io.print(x)
+        x = 0
+        return x
+    end-method
+
+    method showname()
+    vars e
+    begin
+        self.name = 22
+        e = self.name
+        io.print(e)
+        return e
+    end-method
+
+end-class
+
+class Frutas
+
+    method info(a, b)
+    vars c
+    begin
+        io.print(a)
+        c = 10
+        b = a + c
+        return b
+    end-method
+
+end-class
+
+class Pessoa
+    vars num
+
+    method calc(x)
+    vars y, z
+    begin
+        z = self.num
+        y = x + z
+        io.print(y)
+        y = new Base
+        return y
+    end-method
+
+end-class
+
+main()
+vars p, b, x, na, nb, nc
+begin
+    b = new Base
+    p = new Pessoa
+    fruit = new Frutas
+    p._prototype = b
+
+    b.id = 111
+
+    p.num = 123
+    p.id = 321
+
+    x = 1024
+
+    p.showid()
+    b.showname()
+    p.calc(x)
+
+    na = 1024
+    nb = 128
+    nc = 77
+
+    fruit.info(na, nb)
+
+    if na eq nb then
+        nc = nb + na
+    else
+        nc = 123
+    end-if
+
+    io.print(nc)
+
+    na = 22
+    nb = 8
+
+    if na ne nb then
+        nc = nb + na
+    else
+        nc = 234
+    end-if
+
+    io.print(nc)
+
+    na = 22
+    nb = 8
+
+    if na gt nb then
+        nc = nb - na
+    else
+        nc = 24
+    end-if
+
+    io.print(nc)
+
+    na = 1
+    nb = 2
+
+    if na ge nb then
+        nc = nb * na
+    else
+        nc = 234
+    end-if
+
+    io.print(nc)
+
+    na = 44
+    nb = 88
+
+    if na lt nb then
+        nc = nb / na
+    else
+        nc = 2
+    end-if
+
+    io.print(nc)
+
+    na = 13
+    nb = 12
+
+    if na le nb then
+        nc = nb + na
+    else
+        nc = 2
+    end-if
+
+    io.print(nc)
+
+end
