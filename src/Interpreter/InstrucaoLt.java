@@ -15,7 +15,7 @@ public class InstrucaoLt {
             Var<Integer> var2 = pilha.getFirst();
             pilha.removeFirst();
 
-            if (var1.getValor() < var2.getValor()){
+            if (var1.getValor() > var2.getValor()){
                 Var<Boolean> resultado = new Var<>("-", true);
                 pilha.addFirst(resultado);
 

@@ -15,7 +15,7 @@ public class InstrucaoStore {
 
         if(matcher.find()){
 
-            Var variavel = new Var(getCorDaVez(), 0);
+            Var variavel = new Var("cinza", 0);
             //PEGA O VALOR DA PRIMEIRA VARIÁVEL DA PILHA E ADICIONA NA NOVA VARIÁVEL
             variavel.setValor(pilha.getFirst().getValor());
             pilha.removeFirst();
@@ -49,7 +49,7 @@ public class InstrucaoStore {
         if(matcher.find()){
             String nomeVariavel = matcher.group(1);
 
-            Var variavel = new Var(getCorDaVez(), 0);
+            Var variavel = new Var("cinza", 0);
             //PEGA O VALOR DA PRIMEIRA VARIÁVEL DA PILHA E ADICIONA NA NOVA VARIÁVEL
             variavel.setValor(pilha.getFirst().getValor());
             pilha.removeFirst();

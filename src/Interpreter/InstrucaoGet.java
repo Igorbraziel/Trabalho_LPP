@@ -18,7 +18,7 @@ public class InstrucaoGet {
                 int deuGet = 0;
                 while(deuGet == 0) {
                     if (objetoHierarquia.getVariaveisDoObjeto().containsKey(nomeDaVariavel)) {
-                        Var variavelGet = new Var("", objetoHierarquia.getVariaveisDoObjeto().get(nomeDaVariavel).getValor());
+                        Var variavelGet = new Var("-", objetoHierarquia.getVariaveisDoObjeto().get(nomeDaVariavel).getValor());
                         pilha.addFirst(variavelGet);
                         deuGet = 1;
                     } else {

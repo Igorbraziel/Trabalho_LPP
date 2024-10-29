@@ -35,7 +35,7 @@ public class IfElse {
                 matcher = pattern.matcher(linhaLeitura);
                 if(matcher.find()){
                     fimDoIf = true;
-                    linhaElse = linhaElse + "\n" + matcher.group(1) + "end-if";
+                    linhaElse = linhaElse + "\n";
                 } else {
                     if(!entrouNoElse) {
                         pattern = Pattern.compile("^(\\s*)else\\s*$");

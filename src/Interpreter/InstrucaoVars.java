@@ -30,8 +30,7 @@ public class InstrucaoVars {
                 matcher = pattern.matcher(parametros);
                 matcher.find();
                 separatedParamether = matcher.group(1);
-                Var variavel = new Var("", 0);
-                variavel.setCor(getCorDaVez());
+                Var variavel = new Var("cinza", 0);
                 //listaVars.addFirst(variavel);
                 getMemoriaFisica().addFirst(variavel);
                 referenciaVariaveis.put(separatedParamether, variavel);
@@ -72,7 +71,7 @@ public class InstrucaoVars {
                 matcher = pattern.matcher(parametros);
                 matcher.find();
                 separatedParamether = matcher.group(1);
-                Var variavel = new Var("", 0);
+                Var variavel = new Var("cinza", 0);
                 //variavel.setCor(getCorDaVez());
                 //listaVars.addFirst(variavel);
                 getMemoriaFisica().addFirst(variavel);

@@ -20,7 +20,7 @@ public class InstrucaoCall {
                     pilha.removeFirst();
                     ioGenerico.instrucaoPrint(pilha);
                     pilha.removeFirst();
-                    Var retornoIo = new Var<>("", 0);
+                    Var retornoIo = new Var<>("-", 0);
                     pilha.addFirst(retornoIo);
                     return true;
                 }

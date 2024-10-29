@@ -120,8 +120,9 @@ public class EstruturaObjeto {
                     }
 
                     for (int j = 0; j < parametrosSeparados.size(); j++){
-                        Var variavel = new Var("", pilha.getFirst().getValor());
+                        Var variavel = new Var("cinza", pilha.getFirst().getValor());
                         pilha.removeFirst();
+                        getMemoriaFisica().addFirst(variavel);
                         getEscopos().get(getFuncaoEmExecucao().getFirst()).put(parametrosSeparados.get(j), variavel);
                     }
 

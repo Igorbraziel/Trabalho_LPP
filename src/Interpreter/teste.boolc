@@ -82,8 +82,8 @@ begin
     load d
     mul
     store e
-    load c
     load a
+    load c
     gt
     if 4
         load a
@@ -95,5 +95,5 @@ begin
         load io
         call print
         pop
-    end-if
+
 end

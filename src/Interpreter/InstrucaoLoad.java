@@ -26,7 +26,7 @@ public class InstrucaoLoad {
             /*PEGA O VALOR DA VARIÁVEL CUJA O NOME FOI RECEBIDO, SENDO QUE, PARA ISSO
              * É NECESSÁRIO IDENTIFICAR O ESCOPO DE VARIÁVEIS EM EXECUÇÃO*/
             if (getEscopos().get(getFuncaoEmExecucao().getFirst()).containsKey(nomeVariavel)) {
-                Var variavel = new Var("", getEscopos().get(getFuncaoEmExecucao().getFirst()).get(nomeVariavel).getValor());
+                Var variavel = new Var("-", getEscopos().get(getFuncaoEmExecucao().getFirst()).get(nomeVariavel).getValor());
                 pilha.addFirst(variavel);
             }
 //            else {
@@ -65,12 +65,12 @@ public class InstrucaoLoad {
             /*PEGA O VALOR DA VARIÁVEL CUJA O NOME FOI RECEBIDO, SENDO QUE, PARA ISSO
              * É NECESSÁRIO IDENTIFICAR O ESCOPO DE VARIÁVEIS EM EXECUÇÃO*/
             if (getEscopos().get(getFuncaoEmExecucao().getFirst()).containsKey(nomeVariavel)) {
-                Var variavel = new Var("", getEscopos().get(getFuncaoEmExecucao().getFirst()).get(nomeVariavel).getValor());
+                Var variavel = new Var("-", getEscopos().get(getFuncaoEmExecucao().getFirst()).get(nomeVariavel).getValor());
                 pilha.addFirst(variavel);
             } else {
 
                 if(metodoChamado.getSelf().getVariaveisDoObjeto().containsKey(nomeVariavel)){
-                    Var variavel = new Var("", metodoChamado.getSelf().getVariaveisDoObjeto().get(nomeVariavel).getValor());
+                    Var variavel = new Var("-", metodoChamado.getSelf().getVariaveisDoObjeto().get(nomeVariavel).getValor());
                     pilha.addFirst(variavel);
                 }
             }

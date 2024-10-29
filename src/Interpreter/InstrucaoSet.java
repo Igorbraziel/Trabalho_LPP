@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import static Interpreter.ListasObjetos.getMemoriaFisica;
+
 public class InstrucaoSet {
     public static Boolean instrucaoSet(String linhaCompilada, List<Var> pilha){
         Pattern pattern = Pattern.compile("^\\s*set\\s+(\\w+)\\s*$");
@@ -15,7 +17,7 @@ public class InstrucaoSet {
             Var variavelComObjeto = pilha.getFirst();
             pilha.removeFirst();
             if (variavelComObjeto.getValor() instanceof EstruturaObjeto) {
-                Var variavelPraSet = new Var<>("", pilha.getFirst().getValor());
+                Var variavelPraSet = new Var<>("cinza", pilha.getFirst().getValor());
                 pilha.removeFirst();
 
                 EstruturaObjeto objetoHierarquia = (EstruturaObjeto) variavelComObjeto.getValor();
@@ -25,6 +27,8 @@ public class InstrucaoSet {
                     if (objetoHierarquia.getVariaveisDoObjeto().containsKey(nomeDaVariavel)) {
                         objetoHierarquia.getVariaveisDoObjeto().put(nomeDaVariavel, variavelPraSet);
                         setou = 1;
+                        getMemoriaFisica().addFirst(variavelPraSet);
+
 //                        System.out.println("Não setou?");
 
                     } else {

@@ -17,9 +17,7 @@ public class InstrucaoIfElse {
         Matcher matcher = pattern.matcher(linhaCompilada);
         if(matcher.find()){
             Var<Boolean> retornoDoIf = pilha.getFirst();
-            System.out.println("antes");
             pilha.removeFirst();
-            System.out.println("depois");
 
             int numeroInstrucoes = Integer.parseInt(matcher.group(2));
 
