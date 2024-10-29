@@ -3,13 +3,12 @@ class classeTeste
     vars i, j, k
 
     method subtracao(x, y)
-    vars w
     begin
         load x
         load y
         sub
-        store w
-        load w
+        store x
+        load x
         ret
     end-method
 

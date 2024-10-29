@@ -77,9 +77,10 @@ public class EstruturaObjeto {
     }
 
     public Boolean executaMetodo(String linhaCompilada, List<Var> pilha, BufferedReader br, DefinicaoMetodo metodoExecutado){
-        Boolean achouMatch;
-        Pattern pattern;
-        Matcher matcher;
+        Boolean achouMatch, achouMatch2;
+        Boolean entraUmaVez = true;
+        Pattern pattern, pattern2;
+        Matcher matcher, matcher2;
         String parametros;
         LinkedList<String> parametrosSeparados = new LinkedList<String>();
 
@@ -94,10 +95,14 @@ public class EstruturaObjeto {
                 System.out.println("ERROR: " + e);
             }
 
-            pattern = Pattern.compile("^\\s*vars\\s+([a-zA-Z,\\s]+)\\s*$");
+            pattern = Pattern.compile("^\\s*begin\\s*$");
             matcher = pattern.matcher(metodoExecutado.getInstrucoes().get(i));
             achouMatch = matcher.find();
-            if (achouMatch){
+            pattern2 = Pattern.compile("^\\s*vars\\s+([a-zA-Z,\\s]+)\\s*$");
+            matcher2 = pattern2.matcher(metodoExecutado.getInstrucoes().get(i));
+            achouMatch2 = matcher2.find();
+            if ((achouMatch || achouMatch2) && entraUmaVez){
+                entraUmaVez = false;
                 pattern = Pattern.compile("^\\s*[(]([a-zA-Z,\\s]*)[)]\\s*$");
                 matcher = pattern.matcher(metodoExecutado.getParametros());
                 achouMatch = matcher.find();
@@ -118,12 +123,23 @@ public class EstruturaObjeto {
                             parametros = matcher.group(1);
                         }
                     }
+                    if(achouMatch2) {
+                        for (int j = 0; j < parametrosSeparados.size(); j++) {
+                            Var variavel = new Var("cinza", pilha.getFirst().getValor());
+                            pilha.removeFirst();
+                            getMemoriaFisica().addFirst(variavel);
+                            getEscopos().get(getFuncaoEmExecucao().getFirst()).put(parametrosSeparados.get(j), variavel);
+                        }
+                    } else {
+                        HashMap<String, Var> referenciaVariaveis = new HashMap<>();
+                        for (int j = 0; j < parametrosSeparados.size(); j++) {
+                            Var variavel = new Var("cinza", pilha.getFirst().getValor());
+                            pilha.removeFirst();
+                            getMemoriaFisica().addFirst(variavel);
+                            referenciaVariaveis.put(parametrosSeparados.get(j), variavel);
+                        }
+                        getEscopos().put(getFuncaoEmExecucao().getFirst(), referenciaVariaveis);
 
-                    for (int j = 0; j < parametrosSeparados.size(); j++){
-                        Var variavel = new Var("cinza", pilha.getFirst().getValor());
-                        pilha.removeFirst();
-                        getMemoriaFisica().addFirst(variavel);
-                        getEscopos().get(getFuncaoEmExecucao().getFirst()).put(parametrosSeparados.get(j), variavel);
                     }
 
                 }

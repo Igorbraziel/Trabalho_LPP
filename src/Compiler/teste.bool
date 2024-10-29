@@ -2,10 +2,9 @@ class classeTeste
     vars i, j, k
 
     method subtracao(x, y)
-    vars w
     begin
-        w = x - y
-        return w
+        x = x - y
+        return x
     end-method
 
     method adicao(a, b)
