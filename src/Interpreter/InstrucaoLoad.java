@@ -17,6 +17,10 @@ public class InstrucaoLoad {
         if(matcher.find()){
             String nomeVariavel = matcher.group(1);
 
+            if(nomeVariavel.equals("io")){
+                pilha.addFirst(getEscopos().get("io").get("io"));
+                return true;
+            }
             //Precisa remover algo?
 
             /*PEGA O VALOR DA VARIÁVEL CUJA O NOME FOI RECEBIDO, SENDO QUE, PARA ISSO

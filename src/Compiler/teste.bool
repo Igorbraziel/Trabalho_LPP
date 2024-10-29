@@ -37,4 +37,5 @@ begin
     d = b.adicao(a, c)
     a = b.k
     e = a * d
+    io.print(a)
 end

@@ -3,6 +3,7 @@ package Interpreter;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import static Interpreter.Intermediadora.intermediadora;
@@ -18,6 +19,12 @@ public class BoolInterpreter {
         String arquivoEntrada;
         /*Stack<Object> pilha = new Stack<>();*/
         List<Var> pilhaList = new LinkedList<Var>();
+        IoEstrutura objetoIO = new IoEstrutura();
+        Var ioVariavel = new Var("cinza", objetoIO);
+        getMemoriaFisica().addFirst(ioVariavel);
+        HashMap<String, Var> hashIO = new HashMap<>();
+        hashIO.put("io", ioVariavel);
+        getEscopos().put("io", hashIO);
 
         //getFuncaoEmExecucao().addFirst("main");
 

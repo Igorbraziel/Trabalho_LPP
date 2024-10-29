@@ -82,4 +82,8 @@ begin
     load d
     mul
     store e
+    load a
+    load io
+    call print
+    pop
 end
