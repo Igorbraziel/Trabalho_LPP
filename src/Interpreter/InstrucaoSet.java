@@ -29,17 +29,13 @@ public class InstrucaoSet {
                         setou = 1;
                         getMemoriaFisica().addFirst(variavelPraSet);
 
-//                        System.out.println("Não setou?");
 
                     } else {
-//                        System.out.println("Entoru else " + objetoHierarquia.getVariaveisDoObjeto());
 
                         if(objetoHierarquia.getVariaveisDoObjeto().containsKey("_prototype")){
-//                            System.out.println("Não achou a prototype");
 
                             if(objetoHierarquia.getVariaveisDoObjeto().get("_prototype").getValor() instanceof EstruturaObjeto){
                                 objetoHierarquia = (EstruturaObjeto) objetoHierarquia.getVariaveisDoObjeto().get("_prototype").getValor();
-                                System.out.println("próximo prototype");
                             }
                         }
 

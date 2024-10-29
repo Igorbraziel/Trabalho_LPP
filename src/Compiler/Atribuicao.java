@@ -9,7 +9,7 @@ public class Atribuicao {
         String falha = "FALHA";
         String linhaCompilada = falha;
 
-        Pattern pattern = Pattern.compile("^(\\s*)([a-zA-Z]+)\\s*=\\s*([a-z-A-Z]+)\\.([a-zA-Z]+)\\s*$");
+        Pattern pattern = Pattern.compile("^(\\s*)([a-zA-Z]+)\\s*=\\s*([a-z-A-Z]+)\\.([a-zA-Z_]+)\\s*$");
         Matcher matcher = pattern.matcher(linhaOriginal);
         if(matcher.find()){
             linhaCompilada = "\n" + matcher.group(1) + "load " + matcher.group(3) + "\n" + matcher.group(1) + "get " + matcher.group(4) + "\n" + matcher.group(1) + "store " + matcher.group(2);
@@ -25,19 +25,19 @@ public class Atribuicao {
                 if(matcher.find()){
                     linhaCompilada = "\n" + matcher.group(1) + "const " + matcher.group(3) + "\n" + matcher.group(1) + "store " + matcher.group(2);
                 } else { //a.arauto = b
-                    pattern = Pattern.compile("^(\\s*)([a-zA-Z]+)\\.([a-zA-Z]+)\\s*=\\s*([a-zA-Z]+)\\s*$");
+                    pattern = Pattern.compile("^(\\s*)([a-zA-Z]+)\\.([a-zA-Z_]+)\\s*=\\s*([a-zA-Z]+)\\s*$");
                     matcher = pattern.matcher(linhaOriginal);
                     if(matcher.find()){
                         linhaCompilada = "\n" + matcher.group(1) + "load " + matcher.group(4) + "\n" + matcher.group(1) + "load " + matcher.group(2);
                         linhaCompilada = linhaCompilada + "\n" + matcher.group(1) + "set " + matcher.group(3);
                     } else { // a.arauto = 10
-                        pattern = Pattern.compile("^(\\s*)([a-zA-Z]+)\\.([a-zA-Z]+)\\s*=\\s*([0-9]+)\\s*$");
+                        pattern = Pattern.compile("^(\\s*)([a-zA-Z]+)\\.([a-zA-Z_]+)\\s*=\\s*([0-9]+)\\s*$");
                         matcher = pattern.matcher(linhaOriginal);
                         if (matcher.find()) {
                             linhaCompilada = "\n" + matcher.group(1) + "const " + matcher.group(4) + "\n" + matcher.group(1) + "load " + matcher.group(2);
                             linhaCompilada = linhaCompilada + "\n" + matcher.group(1) + "set " + matcher.group(3);
                         } else { //a.arauto = b.bola
-                            pattern = Pattern.compile("^(\\s*)([a-zA-Z]+)\\.([a-zA-Z]+)\\s*=\\s*([a-zA-Z]+)\\.([a-zA-Z]+)\\s*$");
+                            pattern = Pattern.compile("^(\\s*)([a-zA-Z]+)\\.([a-zA-Z_]+)\\s*=\\s*([a-zA-Z]+)\\.([a-zA-Z_]+)\\s*$");
                             matcher = pattern.matcher(linhaOriginal);
                             if (matcher.find()) {
                                 linhaCompilada = "\n" + matcher.group(1) + "load " + matcher.group(4) + "\n" + matcher.group(1) + "get " + matcher.group(5);

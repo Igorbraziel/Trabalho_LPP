@@ -26,7 +26,7 @@ public class AtribuicaoComOperador {
                         + "\n" + matcher.group(1) + "div" + "\n" + matcher.group(1) + "store " + matcher.group(2);
             }
         } else { // name.name = a + b //atribuição com operador a um name.name
-            pattern = Pattern.compile("^(\\s*)(\\w+)\\.(\\w+)\\s+=\\s+(\\w+)\\s+([+\\-*/])\\s+(\\w+)\\s*$");
+            pattern = Pattern.compile("^(\\s*)(\\w+)\\.([_\\w]+)\\s+=\\s+(\\w+)\\s+([+\\-*/])\\s+(\\w+)\\s*$");
             matcher = pattern.matcher(linhaOriginal);
             if(matcher.find()){
                 if(matcher.group(5).equals("+")) { //NÃO SEI SE ESTÁ CERTO

@@ -68,10 +68,26 @@ public class InstrucaoLoad {
                 Var variavel = new Var("-", getEscopos().get(getFuncaoEmExecucao().getFirst()).get(nomeVariavel).getValor());
                 pilha.addFirst(variavel);
             } else {
+                Boolean naoAdicionada = true;
 
                 if(metodoChamado.getSelf().getVariaveisDoObjeto().containsKey(nomeVariavel)){
                     Var variavel = new Var("-", metodoChamado.getSelf().getVariaveisDoObjeto().get(nomeVariavel).getValor());
                     pilha.addFirst(variavel);
+                }else{
+//                    if(metodoChamado.getSelf().getVariaveisDoObjeto().containsKey("_prototype") && (metodoChamado.getSelf().getVariaveisDoObjeto().get("_prototype").getValor() instanceof EstruturaObjeto)){
+//                        EstruturaObjeto objetoIntermediario = (EstruturaObjeto) metodoChamado.getSelf().getVariaveisDoObjeto().get("_prototype").getValor();
+//                        while(naoAdicionada){
+//                            if(objetoIntermediario.getVariaveisDoObjeto().containsKey(nomeVariavel)){
+//                                Var variavel = new Var("-", objetoIntermediario.getVariaveisDoObjeto().get(nomeVariavel).getValor());
+//                                pilha.addFirst(variavel);
+//                                naoAdicionada = false;
+//                            } else {
+//                                if(objetoIntermediario.getVariaveisDoObjeto().containsKey("_prototype") && objetoIntermediario.getVariaveisDoObjeto().get("_prototype").getValor() instanceof EstruturaObjeto){
+//                                    objetoIntermediario = (EstruturaObjeto) objetoIntermediario.getVariaveisDoObjeto().get("_prototype").getValor();
+//                                }
+//                            }
+//                        }
+//                    } Faz algum sentido isso?
                 }
             }
 

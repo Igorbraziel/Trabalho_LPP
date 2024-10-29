@@ -54,12 +54,11 @@ public class EstruturaObjeto {
         this.metodos = metodos;
     }
 
-    public void identificaMetodo(String nome, DefinicaoMetodo metodoParametro, EstruturaObjeto objetoChamado){
+    public void identificaMetodo(DefinicaoMetodo metodoParametro, EstruturaObjeto objetoChamado){
         Boolean achouMetodo = false;
-
         //while(!achouMetodo) {
-            for (DefinicaoMetodo item : metodos) {
-                if (item.getNome().equals(nome)) {
+            for (DefinicaoMetodo item : objetoChamado.getMetodos()) {
+                if (item.getNome().equals(metodoParametro.getNome())) {
                     metodoParametro.setInstrucoes(item.getInstrucoes());
                     metodoParametro.setParametros(item.getParametros());
                     achouMetodo = true;
@@ -69,7 +68,7 @@ public class EstruturaObjeto {
                 if(objetoChamado.getVariaveisDoObjeto().containsKey("_prototype")){
                     if(objetoChamado.getVariaveisDoObjeto().get("_prototype").getValor() instanceof EstruturaObjeto){
                         EstruturaObjeto objetoIntermediario = (EstruturaObjeto) objetoChamado.getVariaveisDoObjeto().get("_prototype").getValor();
-                        identificaMetodo(nome, metodoParametro, objetoIntermediario);
+                        identificaMetodo(metodoParametro, objetoIntermediario);
                     }
                 }
             }
@@ -103,46 +102,63 @@ public class EstruturaObjeto {
             achouMatch2 = matcher2.find();
             if ((achouMatch || achouMatch2) && entraUmaVez){
                 entraUmaVez = false;
-                pattern = Pattern.compile("^\\s*[(]([a-zA-Z,\\s]*)[)]\\s*$");
-                matcher = pattern.matcher(metodoExecutado.getParametros());
-                achouMatch = matcher.find();
-                if(achouMatch){
-                    parametros = matcher.group(1);
-                    while(achouMatch){
-                        /*SEPARA O NOME DE TODAS AS VARIAVEIS E A ADICIONA
-                         * À ESTRUTURA DA CLASSE EM listaVars*/
-                        pattern = Pattern.compile("([a-zA-Z]+)");
-                        matcher = pattern.matcher(parametros);
-                        matcher.find();
-                        parametrosSeparados.addFirst(matcher.group(1));
 
-                        pattern = Pattern.compile("^[\\s]*[a-zA-Z]+[\\s,]+([a-zA-Z\\s,]+)$");
-                        matcher = pattern.matcher(parametros);
-                        achouMatch = matcher.find();
-                        if(achouMatch){
-                            parametros = matcher.group(1);
+                Pattern pattern3 = Pattern.compile("^\\s*[(](\\s*)[)]\\s*$");
+                Matcher matcher3 = pattern3.matcher(metodoExecutado.getParametros());
+                Boolean achouMatch3 = matcher3.find();
+                if(!achouMatch3) {
+                    pattern = Pattern.compile("^\\s*[(]([a-zA-Z,\\s]*)[)]\\s*$");
+                    matcher = pattern.matcher(metodoExecutado.getParametros());
+                    achouMatch = matcher.find();
+                    if (achouMatch) {
+                        parametros = matcher.group(1);
+                        while (achouMatch) {
+                            /*SEPARA O NOME DE TODAS AS VARIAVEIS E A ADICIONA
+                             * À ESTRUTURA DA CLASSE EM listaVars*/
+                            pattern = Pattern.compile("([a-zA-Z]+)");
+                            matcher = pattern.matcher(parametros);
+                            matcher.find();
+                            parametrosSeparados.addFirst(matcher.group(1));
+
+                            pattern = Pattern.compile("^[\\s]*[a-zA-Z]+[\\s,]+([a-zA-Z\\s,]+)$");
+                            matcher = pattern.matcher(parametros);
+                            achouMatch = matcher.find();
+                            if (achouMatch) {
+                                parametros = matcher.group(1);
+                            }
                         }
+                        if (achouMatch2) {
+                            for (int j = 0; j < parametrosSeparados.size(); j++) {
+                                Var variavel = new Var("cinza", pilha.getFirst().getValor());
+                                pilha.removeFirst();
+                                getMemoriaFisica().addFirst(variavel);
+                                getEscopos().get(getFuncaoEmExecucao().getFirst()).put(parametrosSeparados.get(j), variavel);
+                            }
+                        } else {
+                            HashMap<String, Var> referenciaVariaveis = new HashMap<>();
+                            for (int j = 0; j < parametrosSeparados.size(); j++) {
+                                Var variavel = new Var("cinza", pilha.getFirst().getValor());
+                                pilha.removeFirst();
+                                getMemoriaFisica().addFirst(variavel);
+                                referenciaVariaveis.put(parametrosSeparados.get(j), variavel);
+                            }
+                            getEscopos().put(getFuncaoEmExecucao().getFirst(), referenciaVariaveis);
+
+                        }
+
                     }
-                    if(achouMatch2) {
-                        for (int j = 0; j < parametrosSeparados.size(); j++) {
-                            Var variavel = new Var("cinza", pilha.getFirst().getValor());
-                            pilha.removeFirst();
-                            getMemoriaFisica().addFirst(variavel);
-                            getEscopos().get(getFuncaoEmExecucao().getFirst()).put(parametrosSeparados.get(j), variavel);
-                        }
-                    } else {
-                        HashMap<String, Var> referenciaVariaveis = new HashMap<>();
-                        for (int j = 0; j < parametrosSeparados.size(); j++) {
-                            Var variavel = new Var("cinza", pilha.getFirst().getValor());
-                            pilha.removeFirst();
-                            getMemoriaFisica().addFirst(variavel);
-                            referenciaVariaveis.put(parametrosSeparados.get(j), variavel);
-                        }
-                        getEscopos().put(getFuncaoEmExecucao().getFirst(), referenciaVariaveis);
-
-                    }
-
                 }
+
+                if(achouMatch2 || achouMatch3){
+                    Var variavel = new Var("cinza", metodoExecutado.getSelf());
+                    getEscopos().get(getFuncaoEmExecucao().getFirst()).put("self", variavel);
+                }else{
+                    Var variavel = new Var("cinza", metodoExecutado.getSelf());
+                    HashMap<String, Var> mapaIntermediario = new HashMap<>();
+                    mapaIntermediario.put("self", variavel);
+                    getEscopos().put(getFuncaoEmExecucao().getFirst(), mapaIntermediario);
+                }
+
             }
 
         }
