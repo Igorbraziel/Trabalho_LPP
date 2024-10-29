@@ -3,16 +3,11 @@ package Interpreter;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
+
 import static Interpreter.Intermediadora.intermediadora;
 import static Interpreter.ListasObjetos.*;
 import static Interpreter.GarbageCollector.*;
-
-
-
-import java.util.Stack;
 
 public class BoolInterpreter {
     public static void main(String[] args) {
@@ -47,9 +42,9 @@ public class BoolInterpreter {
                         mudaCorDaVez();
                         pintaMemoria(getEscopos());
                         setContadorInstrucoes(0);
-                        System.out.println("MEMÓRIA FÍSICA " + getMemoriaFisica());
+//                        System.out.println("MEMÓRIA FÍSICA " + getMemoriaFisica());
                         coletorDeLixo();
-                        System.out.println("MEMÓRIA FÍSICA " + getMemoriaFisica());
+//                        System.out.println("MEMÓRIA FÍSICA " + getMemoriaFisica());
                     }
                 }
             } catch (IOException error){
@@ -61,6 +56,9 @@ public class BoolInterpreter {
         }
         System.out.println(getMemoriaFisica());
 
+        for(Map.Entry<String, HashMap<String, Var>> item : getEscopos().entrySet()) {
+            System.out.println(item);
+        }
 //        List<EstruturaObjeto> listaEst = getListaEstruturaClasses();
 //
 //
