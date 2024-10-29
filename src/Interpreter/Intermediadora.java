@@ -99,7 +99,7 @@ public class Intermediadora {
                                                                                     resposta = definicaoClasse(linhaCompilada, pilha, br);
                                                                                     if(!resposta){
 
-                                                                                        //resposta = instrucaoIfElse(linhaCompilada, pilha, br);
+                                                                                        resposta = instrucaoIfElse(linhaCompilada, pilha, br);
                                                                                         if(!resposta){
 
                                                                                             resposta = instrucaoVars(linhaCompilada);
@@ -200,7 +200,7 @@ public class Intermediadora {
                                                                                     resposta = definicaoClasse(linhaCompilada, pilha, br);
                                                                                     if(!resposta){
 
-                                                                                        //resposta = instrucaoIfElse(linhaCompilada, pilha, br);
+                                                                                        resposta = instrucaoIfElse(linhaCompilada, pilha, br);
                                                                                         if(!resposta){
 
                                                                                             resposta = instrucaoVars(linhaCompilada);

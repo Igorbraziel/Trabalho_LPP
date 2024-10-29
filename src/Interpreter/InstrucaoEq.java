@@ -17,8 +17,12 @@ public class InstrucaoEq {
 
             if (var1.getValor().equals(var2.getValor())){
                 Var<Boolean> resultado = new Var<>("-", true);
+                pilha.addFirst(resultado);
+
             }else{
                 Var<Boolean> resultado = new Var<>("-", false);
+                pilha.addFirst(resultado);
+
             }
             System.out.println(pilha);
             return true;

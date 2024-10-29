@@ -13,12 +13,13 @@ import static Interpreter.Intermediadora.intermediadora;
 
 public class InstrucaoIfElse {
     public static Boolean instrucaoIfElse(String linhaCompilada, List<Var> pilha, BufferedReader br) throws IOException {
-        Pattern pattern = Pattern.compile("^(\\s*)if\\s*(\\w+)\\s*$");
+        Pattern pattern = Pattern.compile("^(\\s*)if\\s+([0-9]+)\\s*$");
         Matcher matcher = pattern.matcher(linhaCompilada);
-
         if(matcher.find()){
             Var<Boolean> retornoDoIf = pilha.getFirst();
+            System.out.println("antes");
             pilha.removeFirst();
+            System.out.println("depois");
 
             int numeroInstrucoes = Integer.parseInt(matcher.group(2));
 

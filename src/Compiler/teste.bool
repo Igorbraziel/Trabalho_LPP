@@ -37,5 +37,9 @@ begin
     d = b.adicao(a, c)
     a = b.k
     e = a * d
-    io.print(a)
+    if a gt c then
+        io.print(a)
+    else
+        io.print(c)
+    end-if
 end

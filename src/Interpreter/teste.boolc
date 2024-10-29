@@ -82,8 +82,18 @@ begin
     load d
     mul
     store e
+    load c
     load a
-    load io
-    call print
-    pop
+    gt
+    if 4
+        load a
+        load io
+        call print
+        pop
+    else 4
+        load c
+        load io
+        call print
+        pop
+    end-if
 end
