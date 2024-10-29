@@ -28,7 +28,7 @@ public class InstrucaoIfElse {
                     br.readLine(); // IGNORA AS LINHAS DO IF
                 }
                 String novaLinha = br.readLine(); // LE A PROXIMA LINHA APOS IF
-                pattern = Pattern.compile("^(\\s*)else\\s*(\\w+)\\s*$");
+                pattern = Pattern.compile("^(\\s*)else\\s*([0-9]+)\\s*$");
                 matcher = pattern.matcher(novaLinha);
                 if(matcher.find()){ // O IF TEM ELSE
                     numeroInstrucoes = Integer.parseInt(matcher.group(2)); // NUMERO DE INTRUÇOES DO ELSE
@@ -43,7 +43,7 @@ public class InstrucaoIfElse {
                     intermediadora(br.readLine(), pilha, br); // EXECUTA AS INTRUÇÕES DO IF
                 }
                 String novaLinha = br.readLine(); // LE A PROXIMA LINHA APOS IF
-                pattern = Pattern.compile("^(\\s*)else\\s*(\\w+)\\s*$");
+                pattern = Pattern.compile("^(\\s*)else\\s*([0-9]+)\\s*$");
                 matcher = pattern.matcher(novaLinha);
                 if(matcher.find()){ // O IF TEM ELSE
                     numeroInstrucoes = Integer.parseInt(matcher.group(2)); // NUMERO DE INTRUÇOES DO ELSE
