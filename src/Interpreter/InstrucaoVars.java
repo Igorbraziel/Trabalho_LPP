@@ -74,7 +74,7 @@ public class InstrucaoVars {
                 Var variavel = new Var("cinza", 0);
                 //variavel.setCor(getCorDaVez());
                 //listaVars.addFirst(variavel);
-                getMemoriaFisica().addFirst(variavel);
+                //getMemoriaFisica().addFirst(variavel);
                 referenciaVariaveis.put(separatedParamether, variavel);
 
                 pattern = Pattern.compile("^[\\s]*[a-zA-Z]+[\\s,]+([a-zA-Z\\s,]+)$");

@@ -8,7 +8,7 @@ import java.util.LinkedList;
 import java.util.List;
 import static Interpreter.Intermediadora.intermediadora;
 import static Interpreter.ListasObjetos.*;
-
+import static Interpreter.GarbageCollector.*;
 
 
 
@@ -21,6 +21,7 @@ public class BoolInterpreter {
         List<Var> pilhaList = new LinkedList<Var>();
         IoEstrutura objetoIO = new IoEstrutura();
         Var ioVariavel = new Var("cinza", objetoIO);
+
         getMemoriaFisica().addFirst(ioVariavel);
         HashMap<String, Var> hashIO = new HashMap<>();
         hashIO.put("io", ioVariavel);
@@ -34,10 +35,22 @@ public class BoolInterpreter {
             try(BufferedReader br = new BufferedReader( new FileReader( arquivoEntrada ) )){
                 String linhaCompilada = br.readLine();
 
+                setContadorInstrucoes(0);
+                setCorDaVez("vermelho");
                 while(linhaCompilada != null){
                     System.out.println(linhaCompilada);
                     intermediadora(linhaCompilada, pilhaList, br);
                     linhaCompilada = br.readLine();
+
+                    incrementaContador();
+                    if(getContadorInstrucoes() == 5){
+                        mudaCorDaVez();
+                        pintaMemoria(getEscopos());
+                        setContadorInstrucoes(0);
+                        System.out.println("MEMÓRIA FÍSICA " + getMemoriaFisica());
+                        coletorDeLixo();
+                        System.out.println("MEMÓRIA FÍSICA " + getMemoriaFisica());
+                    }
                 }
             } catch (IOException error){
                 System.out.println("Error: " + error.getMessage());
@@ -46,6 +59,7 @@ public class BoolInterpreter {
             System.out.println("O arquivo de entrada compilado deve ser informado na execução do programa");
             error.printStackTrace();
         }
+        System.out.println(getMemoriaFisica());
 
 //        List<EstruturaObjeto> listaEst = getListaEstruturaClasses();
 //

@@ -22,7 +22,7 @@ public class InstrucaoNew {
             Var prototype = new Var<>("cinza", 0);
             objetoInstanciado.getVariaveisDoObjeto().put("_prototype", prototype);
 
-            Var variavel = new Var("-", objetoInstanciado);
+            Var variavel = new Var("--", objetoInstanciado);
             pilha.addFirst(variavel);
 
             System.out.println(pilha);

@@ -1,6 +1,8 @@
 package Interpreter;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import static Interpreter.ListasObjetos.*;
@@ -18,9 +20,14 @@ public class InstrucaoStore {
             Var variavel = new Var("cinza", 0);
             //PEGA O VALOR DA PRIMEIRA VARIÁVEL DA PILHA E ADICIONA NA NOVA VARIÁVEL
             variavel.setValor(pilha.getFirst().getValor());
-            pilha.removeFirst();
             //ADICIONA A NOVA VARIÁVEL A LISTA QUE SIMULA A MEMÓRIA FÍSICA
             getMemoriaFisica().addFirst(variavel);
+            if(variavel.getValor() instanceof EstruturaObjeto && pilha.getFirst().getCor().equals("--")){
+                for(Map.Entry<String, Var> item : ((EstruturaObjeto) variavel.getValor()).getVariaveisDoObjeto().entrySet()){
+                    getMemoriaFisica().addFirst(item.getValue());
+                }
+            }
+            pilha.removeFirst();
             /*ADICIONA A REFERÊNCIA DA NOVA VARIÁVEL AO SEU NOME CORRESPONDENTE
             * DENTRO DO ESCOPO ADEQUADO (HASHMAP DE ESCOPOS)*/
             if(getEscopos().get(getFuncaoEmExecucao().getFirst()).containsKey(matcher.group(1))){
