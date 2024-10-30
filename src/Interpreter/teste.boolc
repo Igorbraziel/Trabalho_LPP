@@ -1,45 +1,4 @@
 
-class classeTeste
-    vars i, j, k
-
-    method subtracao(x, y)
-    begin
-        load x
-        load y
-        sub
-        store x
-        load x
-        ret
-    end-method
-
-    method adicao(a, b)
-    vars x, y, w
-    begin
-        new classeTeste
-        store y
-        const 13
-        load y
-        set j
-        const 6
-        store x
-        load y
-        get j
-        store w
-        load w
-        load x
-        load y
-        call subtracao
-        store w
-        load w
-        load i
-        add
-        store x
-        load x
-        store k
-        load w
-        ret
-    end-method
-end-class
 
 main()
 vars a, b, c, d, e
@@ -52,31 +11,77 @@ begin
     load a
     sub
     store c
-    new classeTeste
-    store b
-    load b
-    get j
-    store a
-    const 20
-    load b
-    set i
-    load c
-    load b
-    set k
-    load b
-    get k
-    store d
-    load b
-    get i
-    store e
+
     load a
     load c
-    load b
-    call adicao
-    store d
-    load b
-    get k
-    store a
+    gt
+    if 4
+            load a
+            load io
+            call print
+            pop
+    else 4
+            load c
+            load io
+            call print
+            pop
+
+    load a
+    load d
+    lt
+    if 4
+            load a
+            load io
+            call print
+            pop
+    else 4
+            load d
+            load io
+            call print
+            pop
+
+    load a
+    load c
+    le
+    if 4
+            load a
+            load io
+            call print
+            pop
+    else 2
+            load a
+            store c
+
+        load a
+        load c
+        ge
+        if 4
+                load e
+                load io
+                call print
+                pop
+        else 4
+                load c
+                load io
+                call print
+                pop
+
+                    load b
+                    load a
+                    ge
+                    if 4
+                            load e
+                            load io
+                            call print
+                            pop
+                    else 4
+                            load c
+                            load io
+                            call print
+                            pop
+
+
+
     load a
     load d
     mul

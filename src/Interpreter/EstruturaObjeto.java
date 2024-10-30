@@ -86,9 +86,7 @@ public class EstruturaObjeto {
 
 
         for (int i = 0; i < metodoExecutado.getInstrucoes().size(); i++){
-            //System.out.println(getEscopos());
             try {
-                System.out.println(metodoExecutado.getInstrucoes().get(i));
                 intermediadoraMetodo(metodoExecutado.getInstrucoes().get(i), pilha, br, metodoExecutado);
             } catch (Exception e){
                 System.out.println("ERROR: " + e);

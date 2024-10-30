@@ -19,7 +19,7 @@ public class InstrucaoSub {
 
             Var<Integer> resultado = new Var<>("-", soma);
             pilha.addFirst(resultado);
-            System.out.println(pilha);
+
             return true;
         }
         return false;

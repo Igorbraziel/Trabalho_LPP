@@ -19,7 +19,6 @@ public class DefinicaoClasse {
         Matcher matcher = pattern.matcher(linhaCompilada);
         Boolean achouMatch;
         String className;
-        //List<Var> listaVars = new LinkedList<Var>();
         String variaveisDaClasse = "";
         List<DefinicaoMetodo> metodos = new LinkedList<DefinicaoMetodo>();
 
@@ -77,19 +76,8 @@ public class DefinicaoClasse {
                 System.out.println("Error: " + error.getMessage());
             }
 
-
-//            for(int k = 0; k<listaVars.size(); k++){
-//                System.out.println(listaVars.get(k).getNome() + " - " + listaVars.get(k).getValor());
-//            }
-//            for(int i = 0; i<metodos.size(); i++) {
-//                System.out.println("Nome do metodo: " + metodos.get(i).getNome());
-//                for (int j = 0; j < metodos.get(i).getInstrucoes().size(); j++) {
-//                    System.out.println(metodos.get(i).getInstrucoes().get(j));
-//                }
-//            }
             addEstrutura(className, new EstruturaObjeto(className, metodos, variaveisDaClasse));
 
-//            System.out.println("Acabou a classe");
             return true;
         }
         return false;

@@ -31,11 +31,6 @@ public class InstrucaoGet {
                 }
 
 
-//                Var variavelPilha = new Var<>("", ((EstruturaObjeto) variavelComObjeto.getValor()).getVariaveisDoObjeto().get(matcher.group(1)).getValor());
-//                pilha.addFirst(variavelPilha);
-
-                System.out.println(pilha);
-
                 return true;
             }
         }

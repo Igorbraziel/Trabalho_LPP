@@ -19,7 +19,6 @@ public class InstrucaoDiv {
 
             Var<Integer> resultado = new Var<>("-", div);
             pilha.addFirst(resultado);
-            System.out.println(pilha);
             return true;
         }
         return false;

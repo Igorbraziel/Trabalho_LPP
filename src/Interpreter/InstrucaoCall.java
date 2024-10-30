@@ -31,14 +31,9 @@ public class InstrucaoCall {
                 pilha.removeFirst();
                 metodoChamado.setSelf(objetoChamado);
                 metodoChamado.getSelf().identificaMetodo(metodoChamado, objetoChamado);
-                System.out.println("Identificou a call " + metodoChamado.getNome() + " " + metodoChamado.getInstrucoes() + " " + metodoChamado.getParametros());
 
-                //metodoChamado.setParametros(metodoChamado.getSelf().identificaMetodo());
                 getFuncaoEmExecucao().addFirst(  getFuncaoEmExecucao().getFirst() + "-" + metodoChamado.getSelf() + "->" + metodoChamado.getNome());
                 metodoChamado.getSelf().executaMetodo(linhaCompilada, pilha, br, metodoChamado);
-
-
-
 
 
             }

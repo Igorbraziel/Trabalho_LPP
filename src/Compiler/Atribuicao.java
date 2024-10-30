@@ -43,10 +43,7 @@ public class Atribuicao {
                                 linhaCompilada = "\n" + matcher.group(1) + "load " + matcher.group(4) + "\n" + matcher.group(1) + "get " + matcher.group(5);
                                 linhaCompilada = linhaCompilada + "\n" + matcher.group(1) + "load " + matcher.group(2) + "\n" + matcher.group(1) + "set " + matcher.group(3);
                             }
-// FALTAM AS OPERAÇÕES ARITIMÉTICAS
-                            //
-                            //
-                            //
+
                         }
                     }
                 }

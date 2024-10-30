@@ -21,7 +21,6 @@ public class InstrucaoLoad {
                 pilha.addFirst(getEscopos().get("io").get("io"));
                 return true;
             }
-            //Precisa remover algo?
 
             /*PEGA O VALOR DA VARIÁVEL CUJA O NOME FOI RECEBIDO, SENDO QUE, PARA ISSO
              * É NECESSÁRIO IDENTIFICAR O ESCOPO DE VARIÁVEIS EM EXECUÇÃO*/
@@ -29,22 +28,7 @@ public class InstrucaoLoad {
                 Var variavel = new Var("-", getEscopos().get(getFuncaoEmExecucao().getFirst()).get(nomeVariavel).getValor());
                 pilha.addFirst(variavel);
             }
-//            else {
-//                if(getEscopos().get(getFuncaoEmExecucao().getFirst()).containsKey("_prototype")){
-//                    if(getEscopos().get(getFuncaoEmExecucao().getFirst()).get("_prototype").getValor() instanceof EstruturaObjeto){
-//                        prototipo = ((EstruturaObjeto) getEscopos().get(getFuncaoEmExecucao().getFirst()).get("_prototype").getValor());
-//                        if(prototipo.getVariaveisDoObjeto().containsKey(nomeVariavel)){
-//                            Var variavel = new Var("", prototipo.getVariaveisDoObjeto().get(nomeVariavel).getValor());
-//                            pilha.addFirst(variavel);
-//                        }
-//                    }
-//                }
-//            }
 
-
-            System.out.println(pilha);
-//            System.out.println(getFuncaoEmExecucao().getFirst() + " ----> " + getEscopos().get(getFuncaoEmExecucao().getFirst()));
-//            System.out.println(getEscopos());
 
             return true;
 
@@ -60,8 +44,6 @@ public class InstrucaoLoad {
         if(matcher.find()){
             String nomeVariavel = matcher.group(1);
 
-            //Precisa remover algo?
-
             /*PEGA O VALOR DA VARIÁVEL CUJA O NOME FOI RECEBIDO, SENDO QUE, PARA ISSO
              * É NECESSÁRIO IDENTIFICAR O ESCOPO DE VARIÁVEIS EM EXECUÇÃO*/
             if (getEscopos().get(getFuncaoEmExecucao().getFirst()).containsKey(nomeVariavel)) {
@@ -74,26 +56,9 @@ public class InstrucaoLoad {
                     Var variavel = new Var("-", metodoChamado.getSelf().getVariaveisDoObjeto().get(nomeVariavel).getValor());
                     pilha.addFirst(variavel);
                 }else{
-//                    if(metodoChamado.getSelf().getVariaveisDoObjeto().containsKey("_prototype") && (metodoChamado.getSelf().getVariaveisDoObjeto().get("_prototype").getValor() instanceof EstruturaObjeto)){
-//                        EstruturaObjeto objetoIntermediario = (EstruturaObjeto) metodoChamado.getSelf().getVariaveisDoObjeto().get("_prototype").getValor();
-//                        while(naoAdicionada){
-//                            if(objetoIntermediario.getVariaveisDoObjeto().containsKey(nomeVariavel)){
-//                                Var variavel = new Var("-", objetoIntermediario.getVariaveisDoObjeto().get(nomeVariavel).getValor());
-//                                pilha.addFirst(variavel);
-//                                naoAdicionada = false;
-//                            } else {
-//                                if(objetoIntermediario.getVariaveisDoObjeto().containsKey("_prototype") && objetoIntermediario.getVariaveisDoObjeto().get("_prototype").getValor() instanceof EstruturaObjeto){
-//                                    objetoIntermediario = (EstruturaObjeto) objetoIntermediario.getVariaveisDoObjeto().get("_prototype").getValor();
-//                                }
-//                            }
-//                        }
-//                    } Faz algum sentido isso?
+
                 }
             }
-
-            System.out.println(pilha);
-//            System.out.println(getFuncaoEmExecucao().getFirst() + " ----> " + getEscopos().get(getFuncaoEmExecucao().getFirst()));
-//            System.out.println(getEscopos());
 
             return true;
         }

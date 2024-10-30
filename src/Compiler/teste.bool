@@ -1,25 +1,3 @@
-class classeTeste
-    vars i, j, k
-
-    method subtracao(x, y)
-    begin
-        x = x - y
-        return x
-    end-method
-
-    method adicao(a, b)
-    vars x, y, w
-    begin
-        y = new classeTeste
-        y.j = 13
-        x = 6
-        w = y.j
-        w = y.subtracao(w, x)
-        x = w + i
-        k = x
-        return w
-    end-method
-end-class
 
 main()
 vars a, b, c, d, e
@@ -27,14 +5,34 @@ begin
     a = 60
     b = 50
     c = b - a
-    b = new classeTeste
-    a = b.j
-    b.i = 20
-    b.k = c
-    d = b.k
-    e = b.i
-    d = b.adicao(a, c)
-    a = b.k
+
+    if a gt c then
+            io.print(a)
+        else
+            io.print(c)
+        end-if
+    if a lt d then
+            io.print(a)
+        else
+            io.print(d)
+        end-if
+    if a le c then
+            io.print(a)
+        else
+            c = a
+        end-if
+        if a ge c then
+                io.print(e)
+            else
+                io.print(c)
+            end-if
+                    if b ge a then
+                            io.print(e)
+                        else
+                            io.print(c)
+                        end-if
+
+
     e = a * d
     if a gt c then
         io.print(a)

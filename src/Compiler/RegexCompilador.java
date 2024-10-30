@@ -33,10 +33,8 @@ public class RegexCompilador {
 
         linhaCompilada = newArg(linhaOriginal);
         if(linhaCompilada.equals(falha)){
-            //System.out.println("entrou atribuicao");
             linhaCompilada = atribuicao(linhaOriginal);
             if(linhaCompilada.equals(falha)){
-                //System.out.println("entrou call");
                 linhaCompilada = callMethod(linhaOriginal);
                 if(linhaCompilada.equals(falha)){
 

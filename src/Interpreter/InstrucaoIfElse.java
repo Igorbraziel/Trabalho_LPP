@@ -53,7 +53,6 @@ public class InstrucaoIfElse {
                 }
             }
 
-            //System.out.println(pilha);
             return true;
         }
         return false;

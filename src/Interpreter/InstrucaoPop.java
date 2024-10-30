@@ -11,7 +11,6 @@ public class InstrucaoPop {
 
         if(matcher.find()){
             pilha.removeFirst();
-            System.out.println(pilha);
             return true;
         }
         return false;

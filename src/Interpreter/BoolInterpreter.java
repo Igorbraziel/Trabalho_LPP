@@ -12,7 +12,6 @@ import static Interpreter.GarbageCollector.*;
 public class BoolInterpreter {
     public static void main(String[] args) {
         String arquivoEntrada;
-        /*Stack<Object> pilha = new Stack<>();*/
         List<Var> pilhaList = new LinkedList<Var>();
         IoEstrutura objetoIO = new IoEstrutura();
         Var ioVariavel = new Var("cinza", objetoIO);
@@ -22,7 +21,6 @@ public class BoolInterpreter {
         hashIO.put("io", ioVariavel);
         getEscopos().put("io", hashIO);
 
-        //getFuncaoEmExecucao().addFirst("main");
 
         try{
             arquivoEntrada = args[0];
@@ -33,7 +31,6 @@ public class BoolInterpreter {
                 setContadorInstrucoes(0);
                 setCorDaVez("vermelho");
                 while(linhaCompilada != null){
-                    System.out.println(linhaCompilada);
                     intermediadora(linhaCompilada, pilhaList, br);
                     linhaCompilada = br.readLine();
 
@@ -42,9 +39,7 @@ public class BoolInterpreter {
                         mudaCorDaVez();
                         pintaMemoria(getEscopos());
                         setContadorInstrucoes(0);
-//                        System.out.println("MEMÓRIA FÍSICA " + getMemoriaFisica());
                         coletorDeLixo();
-//                        System.out.println("MEMÓRIA FÍSICA " + getMemoriaFisica());
                     }
                 }
             } catch (IOException error){
@@ -54,27 +49,7 @@ public class BoolInterpreter {
             System.out.println("O arquivo de entrada compilado deve ser informado na execução do programa");
             error.printStackTrace();
         }
-        System.out.println(getMemoriaFisica());
 
-        for(Map.Entry<String, HashMap<String, Var>> item : getEscopos().entrySet()) {
-            System.out.println(item);
-        }
-//        List<EstruturaObjeto> listaEst = getListaEstruturaClasses();
-//
-//
-//
-//        System.out.println("\n\nListagem das classes\n");
-//        for(int i = 0; i<listaEst.size(); i++) {
-//            System.out.println("Nome da classe: " + listaEst.get(i).getClassName());
-//            System.out.print("Nome das Variáveis: " + listaEst.get(i).getVariaveisDaClasse());
-//
-//            System.out.println("");
-//            for (int j = 0; j < listaEst.get(i).getMetodos().size(); j++) {
-//                System.out.println("Nome do metodo: " + listaEst.get(i).getMetodos().get(j).getNome());
-//                for(int k = 0; k<listaEst.get(i).getMetodos().get(j).getInstrucoes().size(); k++) {
-//                    System.out.println(listaEst.get(i).getMetodos().get(j).getInstrucoes().get(k));
-//                }
-//            }
-//        }
+
     }
 }

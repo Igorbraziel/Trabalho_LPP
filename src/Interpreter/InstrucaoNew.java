@@ -25,7 +25,6 @@ public class InstrucaoNew {
             Var variavel = new Var("--", objetoInstanciado);
             pilha.addFirst(variavel);
 
-            System.out.println(pilha);
             return true;
         }
         return false;

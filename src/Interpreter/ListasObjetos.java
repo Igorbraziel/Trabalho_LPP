@@ -44,13 +44,5 @@ public class ListasObjetos {
     public static void addEstrutura(String nomeClasse, EstruturaObjeto estrutura){
         listaEstruturaClasses.put(nomeClasse, estrutura);
     }
-//    public static EstruturaObjeto getClasseEspecifica(String nome){
-//        EstruturaObjeto objeto = new EstruturaObjeto();
-//        for(int i = 0; i < listaEstruturaClasses.size(); i++){
-//            if(listaEstruturaClasses.get(i).getClassName().equals(nome)){
-//                objeto = listaEstruturaClasses.get(i);
-//            }
-//        }
-//        return objeto;
-//    }
+
 }

@@ -51,10 +51,8 @@ public class GarbageCollector {
         ArrayList<Integer> indices = new ArrayList<>();
         for (int i = getMemoriaFisica().size() - 1; i >= 0; i--){
             if(!getMemoriaFisica().get(i).getCor().equals(corDaVez)){
-//                System.out.println(getMemoriaFisica().get(i));
                 getMemoriaFisica().remove(i);
-//                System.out.println("REMOVEU");
-//                System.out.println(getMemoriaFisica().get(i));
+
             }
         }
 

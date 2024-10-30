@@ -42,9 +42,6 @@ public class InstrucaoSet {
                     }
                 }
 
-
-
-                System.out.println(pilha);
                 return true;
             }
         }

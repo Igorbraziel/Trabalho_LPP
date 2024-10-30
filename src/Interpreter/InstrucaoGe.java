@@ -24,7 +24,6 @@ public class InstrucaoGe {
                 pilha.addFirst(resultado);
 
             }
-            System.out.println(pilha);
             return true;
         }
         return false;

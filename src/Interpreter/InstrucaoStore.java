@@ -33,16 +33,7 @@ public class InstrucaoStore {
             if(getEscopos().get(getFuncaoEmExecucao().getFirst()).containsKey(matcher.group(1))){
                 getEscopos().get(getFuncaoEmExecucao().getFirst()).put(matcher.group(1), variavel);
             }
-//            else {
-//                EstruturaObjeto prototipo;
-//                if(getEscopos().get(getFuncaoEmExecucao().getFirst()).get("_prototype").getValor() instanceof EstruturaObjeto){
-//                    prototipo = ((EstruturaObjeto) getEscopos().get(getFuncaoEmExecucao().getFirst()).get("_prototype").getValor());
-//                    if(prototipo.getVariaveisDoObjeto().containsKey(matcher.group(1))){
-//                        prototipo.getVariaveisDoObjeto().put(matcher.group(), variavel);
-//                    }
-//                }
-//            }
-            System.out.println(pilha);
+
             return true;
         }
         return false;
@@ -71,7 +62,6 @@ public class InstrucaoStore {
                     metodoChamado.getSelf().getVariaveisDoObjeto().put(nomeVariavel, variavel);
                 }
             }
-            System.out.println(pilha);
             return true;
         }
         return false;
