@@ -1,8 +1,0 @@
-Considerações sobre a sintaxe da linguagem
-• Nomes de métodos, parâmetros, variáveis locais, atributos e classes serão sempre formados
-por sequência de letras (maiúsculas ou minúsculas).
-• Esses nomes não podem utilizar palavras reservadas da linguagem:
-    ◦ class, method, begin, self, vars, end, if, return, eq, ne, lt, le, gt ge, new, main, io.
-• Pode haver espaços no início da linha, no final da linha ou entre os elementos da linguagem.
-    ◦ Pode haver linhas em branco, que devem ser ignoradas.
-• Os números sempre serão inteiros 32-bits (positivos ou negativos).

@@ -1,9 +1,0 @@
-Considerações sobre a semântica da linguagem
-• Variáveis locais e atributos são inicializadas com o valor inteiro 0 (zero).
-• Atributos, variáveis e parâmetros podem armazenar números inteiros ou referência para
-objetos.
-• O parâmetro pode ser alterado como se fosse uma variável.
-• Um método sempre deve retornar, seja um valor inteiro, seja uma referência a um objeto.
-• Um método pode acessar seus parâmetros e variáveis locais diretamente, mas os atributos do
-objeto devem ser acessados via referência self.
-• A linguagem possui coletor de lixo, que deve ser implementado pelo interpretador.
