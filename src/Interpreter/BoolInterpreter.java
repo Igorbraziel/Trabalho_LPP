@@ -10,8 +10,10 @@ import static Interpreter.ListasObjetos.*;
 import static Interpreter.GarbageCollector.*;
 
 public class BoolInterpreter {
+    @SuppressWarnings({"rawtypes", "unchecked"})
     public static void main(String[] args) {
         String arquivoEntrada;
+
         List<Var> pilhaList = new LinkedList<Var>();
         IoEstrutura objetoIO = new IoEstrutura();
         Var ioVariavel = new Var("cinza", objetoIO);
