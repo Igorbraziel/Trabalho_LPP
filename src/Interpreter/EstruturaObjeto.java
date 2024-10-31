@@ -56,7 +56,6 @@ public class EstruturaObjeto {
 
     public void identificaMetodo(DefinicaoMetodo metodoParametro, EstruturaObjeto objetoChamado){
         Boolean achouMetodo = false;
-        //while(!achouMetodo) {
             for (DefinicaoMetodo item : objetoChamado.getMetodos()) {
                 if (item.getNome().equals(metodoParametro.getNome())) {
                     metodoParametro.setInstrucoes(item.getInstrucoes());
@@ -72,7 +71,6 @@ public class EstruturaObjeto {
                     }
                 }
             }
-        //}
     }
 
     public Boolean executaMetodo(String linhaCompilada, List<Var> pilha, BufferedReader br, DefinicaoMetodo metodoExecutado){

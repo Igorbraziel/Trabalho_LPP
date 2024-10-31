@@ -2,7 +2,6 @@ package Interpreter;
 
 import java.util.HashMap;
 import java.util.LinkedList;
-import java.util.List;
 
 public class ListasObjetos {
     //ARMAZENA O ESQUELETO DAS CLASSES QUE SÃO DESCRITAS ANTES DO PROGRAMA COMEÇAR

@@ -5,8 +5,6 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import static Interpreter.ListasObjetos.*;
-import static Interpreter.Intermediadora.intermediadora;
-
 
 
 public class InstrucaoCall {
@@ -14,6 +12,7 @@ public class InstrucaoCall {
         Pattern pattern = Pattern.compile("^\\s*call\\s+(\\w+)\\s*$");
         Matcher matcher = pattern.matcher(linhaCompilada);
         if(matcher.find()){
+
             if(matcher.group(1).equals("print")){
                 if (pilha.getFirst().getValor() instanceof IoEstrutura){
                     IoEstrutura ioGenerico = ((IoEstrutura) pilha.getFirst().getValor());
@@ -34,6 +33,9 @@ public class InstrucaoCall {
 
                 getFuncaoEmExecucao().addFirst(  getFuncaoEmExecucao().getFirst() + "-" + metodoChamado.getSelf() + "->" + metodoChamado.getNome());
                 metodoChamado.getSelf().executaMetodo(linhaCompilada, pilha, br, metodoChamado);
+
+
+
 
 
             }

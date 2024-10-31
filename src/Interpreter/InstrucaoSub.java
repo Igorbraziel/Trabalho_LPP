@@ -19,7 +19,6 @@ public class InstrucaoSub {
 
             Var<Integer> resultado = new Var<>("-", soma);
             pilha.addFirst(resultado);
-
             return true;
         }
         return false;

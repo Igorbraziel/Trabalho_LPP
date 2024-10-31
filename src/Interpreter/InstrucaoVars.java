@@ -72,6 +72,7 @@ public class InstrucaoVars {
                 matcher.find();
                 separatedParamether = matcher.group(1);
                 Var variavel = new Var("cinza", 0);
+
                 referenciaVariaveis.put(separatedParamether, variavel);
 
                 pattern = Pattern.compile("^[\\s]*[a-zA-Z]+[\\s,]+([a-zA-Z\\s,]+)$");
@@ -81,6 +82,7 @@ public class InstrucaoVars {
                     parametros = matcher.group(1);
                 }
             }
+
 
         }
         return referenciaVariaveis;

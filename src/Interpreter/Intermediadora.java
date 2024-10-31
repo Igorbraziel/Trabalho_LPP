@@ -24,10 +24,8 @@ import static Interpreter.InstrucaoRet.instrucaoRet;
 import static Interpreter.InstrucaoSet.instrucaoSet;
 import static Interpreter.InstrucaoStore.*;
 import static Interpreter.InstrucaoSub.instrucaoSub;
-import static Interpreter.DefinicaoClasse.definicaoClasse;
 import static Interpreter.InstrucaoIfElse.instrucaoIfElse;
 import static Interpreter.InstrucaoVars.instrucaoVars;
-import static Interpreter.ListasObjetos.*;
 import static Interpreter.InstrucaoMain.instrucaoMain;
 
 

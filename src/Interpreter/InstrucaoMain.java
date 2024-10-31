@@ -1,8 +1,5 @@
 package Interpreter;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import static Interpreter.ListasObjetos.*;
@@ -16,6 +13,8 @@ public class InstrucaoMain {
         if(matcher.find()){
             getFuncaoEmExecucao().addFirst("main");
             System.out.println("\n\n\n");
+
+
             return true;
         }
         return false;

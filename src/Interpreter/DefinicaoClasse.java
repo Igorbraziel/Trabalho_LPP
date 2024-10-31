@@ -2,14 +2,10 @@ package Interpreter;
 
 import java.io.BufferedReader;
 import java.util.LinkedList;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import static Interpreter.ListasObjetos.*;
-import static Interpreter.InstrucaoVars.instrucaoVars;
-
-import static Interpreter.Intermediadora.intermediadora;
 
 public class DefinicaoClasse {
     public static Boolean definicaoClasse(String linhaCompilada, List<Var> pilha, BufferedReader br){
@@ -75,6 +71,7 @@ public class DefinicaoClasse {
                 System.out.println("O arquivo de entrada compilado deve ser informado na execução do programa");
                 System.out.println("Error: " + error.getMessage());
             }
+
 
             addEstrutura(className, new EstruturaObjeto(className, metodos, variaveisDaClasse));
 

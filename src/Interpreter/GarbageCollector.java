@@ -52,7 +52,6 @@ public class GarbageCollector {
         for (int i = getMemoriaFisica().size() - 1; i >= 0; i--){
             if(!getMemoriaFisica().get(i).getCor().equals(corDaVez)){
                 getMemoriaFisica().remove(i);
-
             }
         }
 

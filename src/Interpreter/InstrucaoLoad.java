@@ -1,6 +1,5 @@
 package Interpreter;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -30,6 +29,8 @@ public class InstrucaoLoad {
             }
 
 
+
+
             return true;
 
 
@@ -44,6 +45,10 @@ public class InstrucaoLoad {
         if(matcher.find()){
             String nomeVariavel = matcher.group(1);
 
+            if(nomeVariavel.equals("io")){
+                pilha.addFirst(getEscopos().get("io").get("io"));
+                return true;
+            }
             /*PEGA O VALOR DA VARIÁVEL CUJA O NOME FOI RECEBIDO, SENDO QUE, PARA ISSO
              * É NECESSÁRIO IDENTIFICAR O ESCOPO DE VARIÁVEIS EM EXECUÇÃO*/
             if (getEscopos().get(getFuncaoEmExecucao().getFirst()).containsKey(nomeVariavel)) {
@@ -59,6 +64,8 @@ public class InstrucaoLoad {
 
                 }
             }
+
+
 
             return true;
         }
